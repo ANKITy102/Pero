@@ -3,15 +3,15 @@ import { NextResponse } from "next/server";
 
 export async function GET(req: Request, { params }: { params: { replicaId: string } }) {
   try {
-    // const session = await auth();
-    // if (!session || !session.user?.sensayUserId) {
-    //   return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
-    // }
-    const session = {
-        user:{
-            sensayUserId:"user1"
-        }
+    const session = await auth();
+    if (!session || !session.user?.sensayUserId) {
+      return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
     }
+    // const session = {
+    //     user:{
+    //         sensayUserId:"user1"
+    //     }
+    // }
     const replicaId = params.replicaId;
 
     const res = await fetch(`https://api.sensay.io/v1/replicas/${replicaId}/chat/history`, {

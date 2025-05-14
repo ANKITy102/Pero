@@ -9,16 +9,16 @@ export async function POST(req: NextRequest, { params }: { params: { replicaId: 
       return NextResponse.json({ error: "Message content is required" }, { status: 400 });
     }
 
-    // const session = await auth();
-    // if (!session || !session.user?.sensayUserId) {
-    //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    // }
+    const session = await auth();
+    if (!session || !session.user?.sensayUserId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
-    const session = {
-      user: {
-        sensayUserId: "user1"
-      }
-    };
+    // const session = {
+    //   user: {
+    //     sensayUserId: "user1"
+    //   }
+    // };
 
     const replicaId = params.replicaId;
 
