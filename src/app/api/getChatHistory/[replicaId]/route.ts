@@ -9,7 +9,7 @@ export async function GET(req: Request, { params }: { params: { replicaId: strin
     // }
     const session = {
         user:{
-            sensayUserId:"admin"
+            sensayUserId:"user1"
         }
     }
     const replicaId = params.replicaId;
