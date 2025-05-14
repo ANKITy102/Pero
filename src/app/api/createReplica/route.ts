@@ -8,7 +8,11 @@ export async function POST(req: Request) {
     if (!session || !session.user?.sensayUserId) {
       return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
     }
-    
+    // const session = {
+    //     user:{
+    //         sensayUserId:"admin"
+    //     }
+    // }
 
     const body = await req.json();
     const { name, shortDescription, greeting, slug, isPrivate = false } = body;
