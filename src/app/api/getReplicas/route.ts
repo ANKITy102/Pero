@@ -1,22 +1,22 @@
 import { NextResponse } from "next/server";
-// import { auth } from "../auth/[...nextauth]/route";
+import { auth } from "../auth/[...nextauth]/route";
 
 export async function GET() {
   try {
-    // const session = await auth();
+    const session = await auth();
 
-    // if (!session || !session.user?.sensayUserId) {
-    //   return NextResponse.json(
-    //     { success: false, message: "Unauthorized" },
-    //     { status: 401 }
-    //   );
-    // }
-
-    const session = {
-        user:{
-            sensayUserId:"user2"
-        }
+    if (!session || !session.user?.sensayUserId) {
+      return NextResponse.json(
+        { success: false, message: "Unauthorized" },
+        { status: 401 }
+      );
     }
+
+    // const session = {
+    //     user:{
+    //         sensayUserId:"user2"
+    //     }
+    // }
     
     const res = await fetch("https://api.sensay.io/v1/replicas", {
       method: "GET",
