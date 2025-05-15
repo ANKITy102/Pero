@@ -75,7 +75,7 @@ export default function LoginForm() {
       setIsLoading2(false);
 
       if (res?.ok) {
-        redirect("/dashbaord")
+        redirect("/discover")
       } else {
         alert("Login failed");
         // show toast or error message

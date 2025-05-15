@@ -11,7 +11,7 @@ export default async function Layout({
     redirect("/");
   }
   return (
-    <div className="bg-[#0a2a36] min-h-screen container">
+    <div className="bg-[#0a2a36] min-h-screen w-full ">
       <Navbar />
       {children}
     </div>

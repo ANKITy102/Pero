@@ -1,34 +1,40 @@
+import { Star, BookmarkIcon } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
-import { Star, BookmarkIcon } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import Image from "next/image"
-interface WaveCardType{
-    imageUrl:string,
-    name:string,
-    description:string,
-    talks:number
+interface WaveCardType {
+  imageUrl: string;
+  name: string;
+  description: string;
+  talks: number;
 }
-export default function WaveCard({imageUrl,name,description,talks}:WaveCardType) {
+
+export default function WaveCard({
+  imageUrl,
+  name,
+  description,
+  talks,
+}: WaveCardType) {
   return (
-    <Card className="max-w-sm overflow-hidden">
-      <div className="relative h-48 w-full overflow-hidden">
-        <Image src={imageUrl} alt="Blue waves pattern" fill className="object-cover" />
+    <Card className="max-w-sm m-auto flex overflow-hidden py-0">
+      <div className="relative h-72 w-full overflow-hidden">
+        <img
+          src={imageUrl}
+          alt="Blue waves pattern"
+          className="h-full w-full object-cover"
+        />
       </div>
-      <CardContent className="p-5">
+      <CardContent className="px-5 py-5">
         <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
         <p className="mt-2 text-gray-600">{description}</p>
-        <div className="mt-4 flex items-center text-sm text-gray-500">{talks}</div>
-        <div className="mt-4 flex items-center justify-between">
-          <div className="flex">
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+
+        <div className="mt-4 flex items-center justify-between text-md text-gray-700">
+          <div>{talks}</div>
+          <div>
+            <BookmarkIcon size={40} className="h-5 w-5 hover:cursor-pointer text-gray-700" />
           </div>
-          <BookmarkIcon className="h-5 w-5 text-gray-400" />
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
