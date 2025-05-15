@@ -1,9 +1,20 @@
 import React from "react";
 import Link from "next/link";
-import { Search, User } from "lucide-react";
-const index = () => {
+import { Compass, LayoutDashboard, LogIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { UserPlus } from "lucide-react";
+import { auth } from "@/app/api/auth/[...nextauth]/route";
+import Image from "next/image";
+import { DropdownMenuComp } from "./dropdown";
+
+export function ButtonOutline() {
+  return <Button variant="outline">Outline</Button>;
+}
+
+const index = async () => {
+  const session = await auth();
   return (
-    <nav className="container mx-auto flex items-center justify-between py-4 px-4 md:px-12 border-b-1 border-teal-800">
+    <nav className="container  mx-auto flex items-center justify-between py-4 px-4 md:px-14 border-b-1 border-teal-800">
       <div className="flex items-center">
         <Link href="/" className="mr-8">
           <div className="flex items-center">
@@ -13,14 +24,38 @@ const index = () => {
           </div>
         </Link>
       </div>
-      <div className="flex items-center space-x-4">
-        <button className="bg-blue-500 rounded-full p-2">
-          <User className="h-5 w-5 text-white" />
-        </button>
-        <button className="text-white">
-          <Search className="h-5 w-5" />
-        </button>
-      </div>
+      {session?.user ? (
+        <div className="flex items-center space-x-6">
+          <Link
+            href="/discover"
+            className="text-white hover:text-green-300 flex items-center gap-1"
+          >
+            <LayoutDashboard size={18} />
+            Discover
+          </Link>
+
+          <DropdownMenuComp imageUrl={session.user.image} />
+        </div>
+      ) : (
+        <div className="flex items-center space-x-4">
+          <Link href="/register">
+            <Button
+              variant="secondary"
+              className="text-lg font-md hover:cursor-pointer bg-transparent text-green-300 hover:text-black"
+            >
+              <UserPlus className="scale-125" /> Sign up
+            </Button>
+          </Link>
+          <Link href="/login">
+            <Button
+              variant="secondary"
+              className="text-lg font-md hover:cursor-pointer bg-transparent text-green-300 hover:text-black"
+            >
+              <LogIn className="scale-125" /> Login
+            </Button>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

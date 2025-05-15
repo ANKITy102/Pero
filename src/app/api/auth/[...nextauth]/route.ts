@@ -38,63 +38,65 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     async signIn({ user, account, profile }) {
-      await connectToDB(); // connect mongoose
-
-      // Check if user exists
-      const existingUser = await User.findOne({ email: user.email });
-      if (!existingUser) {
-        if (!process.env.ORGANIZATION_SECRET || !process.env.API_VERSION) {
-          throw new Error("Missing required environment variables");
-        }
-        const profileImage =
-          user.image ||
-          "https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256_640.png";
-        // Generate sensay user before creating
-        const res = await fetch("https://api.sensay.io/v1/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-ORGANIZATION-SECRET": process.env.ORGANIZATION_SECRET,
-            "X-API-Version": process.env.API_VERSION,
-          },
-          body: JSON.stringify({
-            name: user.name,
-          }),
-        });
-
-        const data = await res.json();
-
-        // Add sensayUserId manually after first creation
-        await User.updateOne(
-          { email: user.email },
-          {
-            $set: {
-              sensayUserId: data.user.uuid,
-              is_admin: false,
-              image: profileImage,
-              username: user!.email!.split('@')[0] + Date.now()
-            },
-          }
-        );
-      }
-
       return true;
     },
-    async session({ session, user }) {
-      await connectToDB();
-      const dbUser = await User.findOne({ email: session.user.email });
-
-      if (dbUser) {
-        session.user.id = dbUser._id.toString();
-        session.user.sensayUserId = dbUser.sensayUserId;
-        session.user.is_admin = dbUser.is_admin;
-        session.user.username = dbUser.username;
-        session.user.image = dbUser.image
-      }
+    async session({ session, token }) {
+      const customToken = token as {
+        id: string;
+        sensayUserId: string;
+        is_admin: boolean;
+        username: string;
+        image: string;
+      };
+      session.user.id = customToken.id;
+      session.user.sensayUserId = customToken.sensayUserId;
+      session.user.is_admin = customToken.is_admin;
+      session.user.username = customToken.username;
+      session.user.image = customToken.image;
       return session;
+    },
+    async jwt({ token, user }) {
+      await connectToDB();
+      
+      // `user` only exists on first login
+      if (user) {
+        const dbUser = await User.findOne({ email: user.email });
+        if (dbUser && !dbUser.sensayUserId) {
+          const profileImage =
+            user.image ||
+            "https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256_640.png";
+          const res = await fetch("https://api.sensay.io/v1/users", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-ORGANIZATION-SECRET": process.env.ORGANIZATION_SECRET!,
+              "X-API-Version": process.env.API_VERSION!,
+            },
+            body: JSON.stringify({ name: user.name }),
+          });
+
+          const data = await res.json();
+
+          dbUser.sensayUserId = data.id;
+          dbUser.is_admin = false;
+          dbUser.image = profileImage;
+          dbUser.username = user.email!.split("@")[0] + Date.now();
+
+          await dbUser.save();
+        }
+
+        token.id = dbUser._id.toString();
+        token.sensayUserId = dbUser.sensayUserId;
+        token.is_admin = dbUser.is_admin;
+        token.username = dbUser.username;
+        token.image = dbUser.image;
+      }
+      return token;
     },
   },
   session: {
     strategy: "jwt",
   },
 });
+
+export const { GET, POST } = handlers;

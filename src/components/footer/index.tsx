@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="flex justify-center items-center gap-8">
           <Link
             href="https://linkedin.com"
-            className="flex items-center gap-2 hover:text-[#ff3e3e] transition-colors"
+            className="flex items-center gap-2 hover:text-green-300 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -52,7 +52,7 @@ export default function Footer() {
 
           <Link
             href="https://facebook.com"
-            className="flex items-center gap-2 hover:text-[#ff3e3e] transition-colors"
+            className="flex items-center gap-2 hover:text-green-300 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -62,7 +62,7 @@ export default function Footer() {
 
           <Link
             href="https://www.devdimensions.com"
-            className="flex items-center gap-2 hover:text-[#ff3e3e] transition-colors"
+            className="flex items-center gap-2 hover:text-green-300 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
