@@ -31,24 +31,24 @@ export function DropdownMenuComp({ imageUrl }: { imageUrl: string }) {
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-50 translate-x-4"
+        className="w-50 translate-x-4 bg-green-100"
         sideOffset={8}
         align="end"
       >
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator className="bg-gray-400"/>
 
-        <DropdownMenuItem className="">
+        <DropdownMenuItem className="hover:cursor-pointer">
           <User className="mr-2 h-4 w-4" />
           Profile
         </DropdownMenuItem>
 
-        <DropdownMenuItem>
+        <DropdownMenuItem className="hover:cursor-pointer">
           <CreditCard className="mr-2 h-4 w-4" />
           Subscription
         </DropdownMenuItem>
 
-        <DropdownMenuItem className="">
+        <DropdownMenuItem className="hover:cursor-pointer">
           <div className="flex gap-x-2" onClick={() => LOGOUT()}>
             <LogOut className="mr-2 h-4 w-4 text-red-600 " />
             <div className="text-red-600">Logout</div>

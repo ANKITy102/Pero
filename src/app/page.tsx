@@ -6,7 +6,7 @@ import Wave from "@/components/wave";
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen relative bg-[#0a2a36] bg-[url('../assets/landingPage/MaskGroup.png')] bg-cover bg-center">
+      <main className="min-h-screen relative bg-[#131316] bg-[url('../assets/landingPage/MaskGroup.png')] bg-cover bg-center">
         <Navbar />
         <section className="relative container mx-auto  pt-18 pb-16 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">

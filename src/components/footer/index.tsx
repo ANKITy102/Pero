@@ -3,7 +3,7 @@ import { Linkedin, Facebook, Globe } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0a2a36] text-white py-8 mt-20 overflow-hidden">
+    <footer className="relative bg-[#131316] text-white py-8 mt-20 overflow-hidden">
       {/* Hexagon Pattern Background */}
         
       <div

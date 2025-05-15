@@ -1,6 +1,8 @@
 import React from 'react';
-import WaveCard from "@/components/replicaCard";
-
+import WaveCard from "@/components/discover/replicaCard";
+import Header from "@/components/discover/header"
+import Reviews from "@/components/discover/reviews"
+import Recommendations from "@/components/discover/recommendations"
 const replicas = [
   {
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
@@ -36,18 +38,11 @@ const replicas = [
 
 const DiscoverPage = () => {
   return (
-    <div className="text-white p-8">
-      <h1 className="text-4xl font-bold mb-6">Discover Iconic Minds</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {replicas.map((replica, index) => (
-          <WaveCard
-            key={index}
-            imageUrl={replica.imageUrl}
-            name={replica.name}
-            description={replica.description}
-            talks={replica.talks}
-          />
-        ))}
+    <div className="min-h-screen  text-white">
+      <div className="container max-w-7xl mx-auto p-4 md:p-6">
+        <Header/>
+        <Reviews/>
+        <Recommendations/>
       </div>
     </div>
   );
