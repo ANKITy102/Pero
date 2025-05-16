@@ -6,9 +6,9 @@ import { getReplicas } from "@/lib/actions/getReplicas";
 
 const DiscoverPage = async () => {
  const res = await getReplicas();
-  // res.replicas.item  contains replicas
-  if (!res.success) {
-    return <div className="text-6xl text-red-500">Something went wrong: {res.message}</div>;
+ // res.replicas.item  contains replicas
+ if (!res.success) {
+   return <div className="text-6xl text-red-500">Something went wrong: {res.message}</div>;
   }
 
   return (

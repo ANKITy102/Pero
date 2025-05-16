@@ -13,9 +13,11 @@ import { getChatResponse } from "@/lib/actions/chatReplica";
 export default function ChatPage({
   initialMessages,
   replicaId,
+  replicaName
 }: {
   initialMessages: ChatMessageT[];
   replicaId: string;
+  replicaName:string
 }) {
   const [mounted, setMounted] = useState(false);
   const [messages, setMessages] = useState<ChatMessageT[]>([]);
@@ -88,7 +90,7 @@ export default function ChatPage({
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                  Hi, I'm replica.
+                  Hi, I'm a trained replica of {replicaName}.
                 </motion.h1>
                 <motion.p
                   className="text-2xl text-gray-400"
@@ -112,7 +114,7 @@ export default function ChatPage({
               {isLoading && (
                 <div className="flex items-center space-x-2 animate-pulse text-sm text-gray-400 px-4 py-2">
                   <BotIcon className="h-4 w-4 text-primary animate-bounce" />
-                  <span>replicaName is thinking...</span>
+                  <span>{replicaName}'s replica is thinking...</span>
                 </div>
               )}
             </div>

@@ -7,12 +7,14 @@ export async function createReplica({
   shortDescription,
   greeting,
   slug,
+  image,
   isPrivate = true,
 }: {
   name: string;
   shortDescription: string;
   greeting: string;
   slug: string;
+  image:string;
   isPrivate?: boolean;
 }) {
   try {
@@ -33,6 +35,7 @@ export async function createReplica({
         name,
         shortDescription,
         greeting,
+        profileImage:image,
         ownerID: session.user.sensayUserId,
         private: isPrivate,
         slug,
