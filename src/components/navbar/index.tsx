@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Compass, LayoutDashboard, LogIn } from "lucide-react";
+import { Compass, LayoutDashboard, LogIn, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
 import Image from "next/image";
@@ -32,6 +32,13 @@ const index = async () => {
           >
             <LayoutDashboard size={18} />
             Discover
+          </Link>
+          <Link
+            href="/create"
+            className="text-white hover:text-green-300 flex items-center gap-1"
+          >
+            <Sparkles size={18} />
+            Create
           </Link>
 
           <DropdownMenuComp imageUrl={session.user.image} />
