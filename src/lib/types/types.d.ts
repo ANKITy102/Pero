@@ -31,3 +31,19 @@ export interface Replica {
     tools: any[];
   };
 }
+
+export interface ChatMessageT {
+  id: number;
+  created_at: string;
+  content: string;
+  role: "user" | "assistant";
+  is_private: boolean;
+  source: string;
+  replica_uuid: string;
+  is_archived: boolean;
+  original_message_id: string | null;
+  replica_slug: string;
+  user_uuid: string;
+  sources: any[]; // You can make a specific type if you know what's inside
+}
+

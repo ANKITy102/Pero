@@ -1,22 +1,20 @@
-import katex from "katex"
+// components/chat/latexRenderer.ts
+import { marked } from "marked";
+import katex from "katex";
+import "katex/dist/katex.min.css";
 
-// Function to render LaTeX in a string
-export function renderLatex(text: string): string {
-  if (!text) return ""
+export function renderLatex(content: string): string {
+  const blockLatexRegex = /\$\$([\s\S]+?)\$\$/g;
+  const inlineLatexRegex = /\$([^\$]+?)\$/g;
 
-  // Find all LaTeX expressions (between $$ and $$)
-  const latexRegex = /\$\$(.*?)\$\$/g
+  const withLatex = content
+    .replace(blockLatexRegex, (_, tex) =>
+      katex.renderToString(tex.trim(), { displayMode: true })
+    )
+    .replace(inlineLatexRegex, (_, tex) =>
+      katex.renderToString(tex.trim(), { displayMode: false })
+    );
 
-  return text.replace(latexRegex, (match, latex) => {
-    try {
-      // Render the LaTeX expression using KaTeX
-      return katex.renderToString(latex, {
-        displayMode: true,
-        throwOnError: false,
-      })
-    } catch (error) {
-      console.error("LaTeX rendering error:", error)
-      return match // Return the original text if rendering fails
-    }
-  })
+  // marked.parse sometimes types as string | Promise<string>, so cast it:
+  return marked.parse(withLatex) as string;
 }

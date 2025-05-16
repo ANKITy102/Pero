@@ -1,19 +1,18 @@
-// Predefined suggestion cards
 export const suggestions = [
   {
-    title: "What are the advantages",
-    subtitle: "of using Next.js?",
+    title: "What moment",
+    subtitle: "shaped your life the most?",
   },
   {
-    title: "Write code to",
-    subtitle: "demonstrate dijkstra's algorithm",
+    title: "How do you handle",
+    subtitle: "failure or setbacks?",
   },
   {
-    title: "Help me write an essay",
-    subtitle: "about silicon valley",
+    title: "What's one lesson",
+    subtitle: "you wish everyone knew?",
   },
   {
-    title: "What is the weather",
-    subtitle: "in San Francisco?",
+    title: "What advice would you give",
+    subtitle: "to someone following your path?",
   },
-]
+];
