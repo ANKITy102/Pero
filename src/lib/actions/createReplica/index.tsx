@@ -47,7 +47,6 @@ export async function createReplica({
     });
     
     const data = await res.json();
-    console.log("got here2", data);
 
     if (!data.success) {
       return {

@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { Compass, LayoutDashboard, LogIn, Sparkles } from "lucide-react";
+import { Compass, LayoutDashboard, LogIn, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
+import { Send } from "lucide-react";
 import Image from "next/image";
 import { DropdownMenuComp } from "./dropdown";
 import { auth } from "@/lib/auth";
@@ -39,6 +40,13 @@ const index = async () => {
           >
             <Sparkles size={18} />
             Create
+          </Link>
+          <Link
+            href="/request"
+            className="text-white hover:text-green-300 flex items-center gap-1"
+          >
+            <MessageCircle  size={18} />
+            Request
           </Link>
 
           <DropdownMenuComp imageUrl={session.user.image} />

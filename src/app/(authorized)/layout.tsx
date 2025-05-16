@@ -12,8 +12,8 @@ export default async function Layout({
   }
   return (
     <div className="bg-[#131316] min-h-screen w-full ">
-        <Navbar />
-        {children}
+      <Navbar />
+      {children}
     </div>
   );
 }
