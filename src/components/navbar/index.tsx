@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Compass, LayoutDashboard, LogIn, MessageCircle, Sparkles } from "lucide-react";
+import { Activity, Compass, Cpu, LayoutDashboard, LogIn, MessageCircle, Settings, Sliders, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
 import { Send } from "lucide-react";
@@ -47,6 +47,13 @@ const index = async () => {
           >
             <MessageCircle  size={18} />
             Request
+          </Link>
+          <Link
+            href="/train"
+            className="text-white hover:text-green-300 flex items-center gap-1"
+          >
+            <Cpu        size={18} />
+            Train
           </Link>
 
           <DropdownMenuComp imageUrl={session.user.image} />

@@ -21,6 +21,7 @@ export default async function ChatPage({ params }: ChatPageProps) {
     );
   }
   const response2 = await getReplica(replicaId);
+  console.log(response2)
   if (!response2 || response2.success == false) {
     return (
       <div className="  text-white">
