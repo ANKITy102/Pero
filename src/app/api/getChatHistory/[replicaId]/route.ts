@@ -1,4 +1,4 @@
-import { auth } from "../../auth/[...nextauth]/route";
+import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request, { params }: { params: { replicaId: string } }) {

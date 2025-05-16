@@ -1,5 +1,5 @@
+import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { auth } from "../api/auth/[...nextauth]/route";
 export default async function Layout({
   children,
 }: Readonly<{

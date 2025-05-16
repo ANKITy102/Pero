@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
-import { auth } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
 export default async function Layout({
   children,
 }: Readonly<{
@@ -12,8 +12,8 @@ export default async function Layout({
   }
   return (
     <div className="bg-[#131316] min-h-screen w-full ">
-      <Navbar />
-      {children}
+        <Navbar />
+        {children}
     </div>
   );
 }

@@ -69,7 +69,7 @@ export default function LoginForm() {
         redirect: false,
         username: values.username,
         password: values.password,
-        callbackUrl: "/dashboard",
+        callbackUrl: "/discover",
       });
 
       setIsLoading2(false);
@@ -89,7 +89,7 @@ export default function LoginForm() {
 
   const GoogleLogin = async () => {
     setIsLoading(true);
-    await signIn("google", { redirectTo: "/dashboard" });
+    await signIn("google", { redirectTo: "/discover" });
   };
 
   return (

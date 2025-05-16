@@ -1,5 +1,5 @@
+import { auth } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "../../auth/[...nextauth]/route";
 
 export async function POST(req: NextRequest, { params }: { params: { replicaId: string } }) {
   try {

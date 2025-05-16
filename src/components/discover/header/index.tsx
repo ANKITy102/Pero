@@ -1,5 +1,5 @@
-import { auth } from '@/app/api/auth/[...nextauth]/route';
 import { Input } from '@/components/ui/input'
+import { auth } from '@/lib/auth';
 import { Search } from 'lucide-react'
 import React from 'react'
 

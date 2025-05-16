@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Compass, LayoutDashboard, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
-import { auth } from "@/app/api/auth/[...nextauth]/route";
 import Image from "next/image";
 import { DropdownMenuComp } from "./dropdown";
+import { auth } from "@/lib/auth";
 
 export function ButtonOutline() {
   return <Button variant="outline">Outline</Button>;
