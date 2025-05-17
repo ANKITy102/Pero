@@ -57,7 +57,7 @@ const index = async () => {
           <div
             className="text-white hover:text-green-300 flex items-center gap-1"
           >
-           {userReplicas && <TrainReplicaDrawer replicas={userReplicas.replicas}/>}
+           {userReplicas && userReplicas?.replicas && <TrainReplicaDrawer replicas={userReplicas.replicas}/>}
           </div>
 
           <DropdownMenuComp imageUrl={session.user.image} />

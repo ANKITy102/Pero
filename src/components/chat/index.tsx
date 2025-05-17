@@ -106,7 +106,7 @@ export default function ChatPage({
             <div className="space-y-4">
               {processedMessages.map((message, index) => (
                 <ChatMessage
-                  key={message.id}
+                  key={index}
                   message={{ role: message.role, content: message.content }}
                   index={index}
                 />
