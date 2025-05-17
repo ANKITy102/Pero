@@ -2,7 +2,7 @@
 
 import { auth } from "@/lib/auth";
 
-export async function getReplicas() {
+export async function getUserReplicas() {
   try {
     const session = await auth(); // Will work since it's a server action
 

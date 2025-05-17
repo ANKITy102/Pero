@@ -6,12 +6,13 @@ interface CardProps {
   name:string;
   replicaId:string;
   description: string;
+  isTrain?:boolean
 }
 
-const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description }) => {
+const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTrain=false }) => {
   return (
     <Link
-    href={`/chat/${replicaId}`}
+    href={isTrain?`/train/${replicaId}`:`/chat/${replicaId}`}
     className="bg-[#080808] bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.1),transparent_70%)]
   h-[19rem] flex flex-col rounded-3xl w-full overflow-hidden"
     >

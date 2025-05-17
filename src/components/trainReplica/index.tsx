@@ -1,5 +1,6 @@
 "use client";
 import { requestReplica } from "@/lib/actions/requestReplica";
+import { trainReplica } from "@/lib/actions/trainReplica";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -11,18 +12,36 @@ export default function TrainReplica({
   replicaId: string;
   replicaName: string;
 }) {
+  console.log("hey id and name", replicaId, replicaName);
   const Router = useRouter();
   const [trainingData, setTrainingData] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!trainingData.trim()) {
+      toast.error("Please enter some training data first.");
+      return;
+    }
+
     try {
       setIsLoading(true);
-      // ⬇️ You can implement the logic here
-      toast.success("Training started!");
+      toast.loading("Training in progress...");
+
+      const res = await trainReplica(replicaId, trainingData);
+      
+      toast.dismiss(); 
+
+      if (res.success) {
+        toast.success("🎉 Replica trained successfully!");
+        setTrainingData(""); 
+        Router.push("/discover")
+      } else {
+        toast.error(res.message || "Failed to train the replica.");
+      }
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.dismiss();
+      toast.error("Something went wrong while training the replica.");
       console.log(error);
     } finally {
       setIsLoading(false);

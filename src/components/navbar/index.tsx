@@ -8,12 +8,18 @@ import Image from "next/image";
 import { DropdownMenuComp } from "./dropdown";
 import { auth } from "@/lib/auth";
 import TrainReplicaDrawer from "@/components/drawer";
+import { getUserReplicas } from "@/lib/actions/getUserReplica";
 export function ButtonOutline() {
   return <Button variant="outline">Outline</Button>;
 }
 
 const index = async () => {
   const session = await auth();
+  let userReplicas;
+  if(session?.user){
+     userReplicas = await getUserReplicas();
+  }
+
   return (
     <nav className="container  mx-auto flex items-center justify-between py-4 px-4 md:px-14 border-b-1 border-teal-800">
       <div className="flex items-center">
@@ -51,7 +57,7 @@ const index = async () => {
           <div
             className="text-white hover:text-green-300 flex items-center gap-1"
           >
-            <TrainReplicaDrawer/>
+           {userReplicas && <TrainReplicaDrawer replicas={userReplicas.replicas}/>}
           </div>
 
           <DropdownMenuComp imageUrl={session.user.image} />
