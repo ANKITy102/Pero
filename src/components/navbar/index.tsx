@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Activity, Compass, Cpu, LayoutDashboard, LogIn, MessageCircle, Settings, Sliders, Sparkles, Zap } from "lucide-react";
+import { Activity, Compass, Cpu, Inbox, LayoutDashboard, LogIn, MessageCircle, Settings, Sliders, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
 import { Send } from "lucide-react";
@@ -54,6 +54,7 @@ const index = async () => {
             <MessageCircle  size={18} />
             Request
           </Link>
+         
           <div
             className="text-white hover:text-green-300 flex items-center gap-1"
           >

@@ -12,8 +12,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
-import { LogOut, User, CreditCard } from "lucide-react";
+import { LogOut, User, CreditCard, Inbox } from "lucide-react";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 export function DropdownMenuComp({ imageUrl }: { imageUrl: string }) {
   const LOGOUT = async () => {
@@ -36,11 +37,19 @@ export function DropdownMenuComp({ imageUrl }: { imageUrl: string }) {
         align="end"
       >
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator className="bg-gray-400"/>
+        <DropdownMenuSeparator className="bg-gray-400" />
 
         <DropdownMenuItem className="hover:cursor-pointer">
-          <User className="mr-2 h-4 w-4" />
-          Profile
+          <Link href="/profile" className="flex gap-2">
+            <User className="mr-2 h-4 w-4" />
+            Profile
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="hover:cursor-pointer">
+          <Link href="/requests" className="flex gap-2">
+            <Inbox className="mr-2 h-4 w-4" />
+            Requests
+          </Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem className="hover:cursor-pointer">
