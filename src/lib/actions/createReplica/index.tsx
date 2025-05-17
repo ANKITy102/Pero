@@ -46,11 +46,11 @@ export async function createReplica({
     });
     
     const data = await res.json();
-
+    console.log("created replica data==",data)
     if (!data.success) {
       return {
         success: false,
-        message: "Failed to create replica",
+        message: data.error,
         error: data,
       };
     }

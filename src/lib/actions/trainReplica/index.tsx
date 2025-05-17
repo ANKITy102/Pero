@@ -60,7 +60,7 @@ export async function trainReplica(replicaId: string, rawText: string) {
     );
 
     const trainData = await trainRes.json();
-
+    console.log("traindata==", trainData)
     if (!trainData.success) {
       return {
         success: false,
