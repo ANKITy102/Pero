@@ -4,49 +4,25 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-export default function TrainReplica({ userId }: { userId?: string }) {
+export default function TrainReplica({
+  replicaId,
+  replicaName,
+}: {
+  replicaId: string;
+  replicaName: string;
+}) {
   const Router = useRouter();
-  const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-  });
-  console.log("this is session", userId);
+  const [trainingData, setTrainingData] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const fields = [
-    {
-      id: "name",
-      label: "Replica Name",
-      placeholder: "e.g. Dr. APJ Abdul Kalam",
-    },
-    {
-      id: "description",
-      label: "Short Description",
-      placeholder: "e.g. Missile Man of India and former President",
-    },
-  ];
-
-  const handleChange = (id: string, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
     try {
       setIsLoading(true);
-      const res = await requestReplica({
-        requestedName: formData.name,
-        description: formData.description,
-        userId,
-      });
-      toast.success("Request submitted");
-      Router.push("/discover");
+      // ⬇️ You can implement the logic here
+      toast.success("Training started!");
     } catch (error) {
-      toast.error("Something went");
+      toast.error("Something went wrong");
       console.log(error);
     } finally {
       setIsLoading(false);
@@ -57,33 +33,39 @@ export default function TrainReplica({ userId }: { userId?: string }) {
     <div className="min-h-[90vh] max-w-7xl mx-auto container ">
       {/* Left Panel */}
       <div className="hidden md:flex  relative flex-col p-8">
-        <div className="flex-1 px-12  py-10 flex flex-col justify-center">
+        <div className="flex-1 px-12 py-10 flex flex-col justify-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Request a Replica You Want
+            Train Your Replica
           </h2>
           <p className="text-white/80 mb-6">
-            Got someone in mind you wish to see as an AI replica? Suggest your
-            favorite personalities — from inspiring leaders to cultural icons —
-            and our team will bring them to life.
+            Make your replica come to life by feeding it the right knowledge.
+            The better the data you provide, the more accurate and authentic the
+            responses will be — just like you're talking to the real person.
           </p>
           <p className="text-white/80 mb-6">
-            Unlike personal replicas created by users, replicas made by our team
-            undergo in-depth research using trusted sources like biographies,
-            interviews, public speeches, articles, and documentaries. This
-            ensures the AI closely mirrors the real personality in tone,
-            knowledge, and behavior.
+            Replicas learn from the content you upload. This can include
+            interviews, biographies, podcasts, speeches, articles, and more. A
+            mix of content types helps the replica reflect the original
+            personality's tone, ideas, and thinking style.
           </p>
           <ul className="text-white space-y-2 mb-6">
-            <li>💡 Suggest a name of someone you'd like to chat with</li>
-            <li>🧾 Add a short description about who they are</li>
-            <li>📩 Submit your request for admin approval</li>
+            <li>📚 More data = Smarter and more realistic replica</li>
+            <li>
+              🎙️ Use diverse sources — podcasts, speeches, biographies,
+              interviews
+            </li>
+            <li>
+              🔁 You can retrain your replica anytime — just visit this page
+              again
+            </li>
           </ul>
-          <div className="bg-yellow-100 text-yellow-900 text-sm p-3 rounded-md border-l-4 border-yellow-500">
-            ⚠️ <strong>Note:</strong> Only admins can create public replicas.
-            This form sends your suggestion to them for review and potential
-            training.
+          <div className="bg-blue-100 text-blue-900 text-sm p-3 rounded-md border-l-4 border-blue-500">
+            💡 <strong>Tip:</strong> Focus on quality + variety of data. The
+            replica adapts its tone, knowledge, and thinking based on what you
+            feed it!
           </div>
         </div>
+
         <div className="absolute top-8 left-8 w-8 h-8 border-t-2 border-r-2 -rotate-90 border-white/30"></div>
         <div className="absolute top-8 right-8 w-8 h-8 border-t-2 border-r-2 border-white/30"></div>
         <div className="absolute bottom-8 left-8 w-8 h-8 border-t-2 border-r-2 rotate-180 border-white/30"></div>
@@ -93,31 +75,28 @@ export default function TrainReplica({ userId }: { userId?: string }) {
             <div key={i} className="w-1 h-1 bg-white rounded-full"></div>
           ))}
         </div>
-       
-       
       </div>
 
       {/* Right Panel */}
       <div className="flex-1 flex flex-col p-6 md:p-10 justify-center text-gray-200">
-        <div className=" px-12 w-full">
-          
-
+        <div className="px-12 w-full">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {fields.map((field) => (
-              <div key={field.id} className="space-y-2">
-                <label htmlFor={field.id} className="block text-sm font-medium">
-                  {field.label}
-                </label>
-                <input
-                  id={field.id}
-                  type="text"
-                  placeholder={field.placeholder}
-                  value={formData[field.id as keyof typeof formData]}
-                  onChange={(e) => handleChange(field.id, e.target.value)}
-                  className="w-full px-4 py-2 text-md rounded-lg bg-gray-900 border border-gray-800 focus:border-green-300 focus:ring-green-300 focus:outline-none"
-                />
-              </div>
-            ))}
+            <div className="space-y-2">
+              <label
+                htmlFor="trainingData"
+                className="block text-sm font-medium"
+              >
+                Upload content to help {replicaName}'s replica learn
+              </label>
+              <textarea
+                id="trainingData"
+                rows={15}
+                placeholder="Paste interviews, quotes, biographies, etc."
+                value={trainingData}
+                onChange={(e) => setTrainingData(e.target.value)}
+                className="w-full px-4 py-3 text-md rounded-lg bg-gray-900 border border-gray-800 focus:border-green-300 focus:ring-green-300 focus:outline-none resize-none"
+              />
+            </div>
 
             <button
               type="submit"
@@ -127,10 +106,10 @@ export default function TrainReplica({ userId }: { userId?: string }) {
               {isLoading ? (
                 <div className="flex items-center justify-center gap-2">
                   <Loader2 className="animate-spin" size={18} />
-                  Please wait...
+                  Training...
                 </div>
               ) : (
-                "Submit Request"
+                "Train Replica"
               )}
             </button>
           </form>

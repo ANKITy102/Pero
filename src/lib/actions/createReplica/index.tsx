@@ -19,7 +19,6 @@ export async function createReplica({
 }) {
   try {
     const session = await auth();
-    console.log("got here1", session);
     if (!session || !session.user?.sensayUserId) {
       return { success: false, message: "Unauthorized" };
     }
@@ -55,7 +54,6 @@ export async function createReplica({
         error: data,
       };
     }
-    console.log("finally,",data);
     return { success: true, replica: data };
   } catch (error) {
     console.error("Error in createReplica:", error);

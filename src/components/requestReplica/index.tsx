@@ -10,7 +10,6 @@ export default function RequestReplica({userId}:{userId?: string}) {
     name: "",
     description: "",
   });
-  console.log("this is session", userId)
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fields = [
@@ -35,7 +34,6 @@ export default function RequestReplica({userId}:{userId?: string}) {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
     try {
       setIsLoading(true);
       const res = await requestReplica({

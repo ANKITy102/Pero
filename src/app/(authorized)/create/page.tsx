@@ -229,7 +229,6 @@ export default function CreateReplica() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
     try {
       setIsLoading(true);
       const res = await createReplica({
@@ -239,7 +238,6 @@ export default function CreateReplica() {
         slug: formData.slug,
         image: formData.image,
       });
-      console.log(res.replica);
     } catch (error) {
       console.log(error);
     } finally {

@@ -7,7 +7,7 @@ import { Send } from "lucide-react";
 import Image from "next/image";
 import { DropdownMenuComp } from "./dropdown";
 import { auth } from "@/lib/auth";
-
+import TrainReplicaDrawer from "@/components/drawer";
 export function ButtonOutline() {
   return <Button variant="outline">Outline</Button>;
 }
@@ -48,13 +48,11 @@ const index = async () => {
             <MessageCircle  size={18} />
             Request
           </Link>
-          <Link
-            href="/train"
+          <div
             className="text-white hover:text-green-300 flex items-center gap-1"
           >
-            <Cpu        size={18} />
-            Train
-          </Link>
+            <TrainReplicaDrawer/>
+          </div>
 
           <DropdownMenuComp imageUrl={session.user.image} />
         </div>

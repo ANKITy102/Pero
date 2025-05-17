@@ -11,7 +11,6 @@ export async function getChatHistory(replicaId: string) {
         status: 401,
       };
     }
-    console.log("hello id:",session.user.sensayUserId)
     const res = await fetch(`https://api.sensay.io/v1/replicas/${replicaId}/chat/history`, {
       method: "GET",
       headers: {
