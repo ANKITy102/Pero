@@ -19,13 +19,17 @@ export const getAllReplicaRequests = async () => {
       // Admin: get all requests
       requests = await ReplicaRequest.find({ status: { $ne: "rejected" } })
         .populate("userId", "name email")
-        .sort({ createdAt: -1 });
+        .sort({ createdAt: -1 })
+        .lean();
+      
     } else {
       // Normal user: only get their own requests
       requests = await ReplicaRequest.find({ userId: session.user.id })
-        .populate("userId", "name email")
-        .sort({ createdAt: -1 });
+        .populate("userId", "name email is_admin")
+        .sort({ createdAt: -1 })
+        .lean();
     }
+    requests = requests.map(req => JSON.parse(JSON.stringify(req)));
 
     return { success: true, data: requests };
   } catch (error) {
