@@ -8,9 +8,10 @@ interface CardProps {
   replicaId:string;
   description: string;
   isTrain?:boolean
+  chatCount?:number
 }
 
-const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTrain=false }) => {
+const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTrain=false, chatCount=0 }) => {
   const totalTalks = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
   return (
     <Link
@@ -35,7 +36,7 @@ const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTra
         </div>
         <div className="flex items-center gap-1 text-gray-400 mb-2">
           <MessageSquare className="h-4 w-4 translate-y-[1px] " />
-          <span className="text-xs">Total Talks : {totalTalks}</span>
+          <span className="text-xs">Total Talks : {chatCount}</span>
         </div>
       </div>
     </Link>

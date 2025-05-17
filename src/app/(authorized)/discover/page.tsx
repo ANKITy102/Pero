@@ -10,7 +10,6 @@ const DiscoverPage = async () => {
  if (!res.success) {
    return <div className="text-6xl text-red-500">Something went wrong: {res.message}</div>;
   }
-
   return (
     <div className="min-h-screen  text-white">
       <div className="container max-w-7xl mx-auto p-4 md:p-6">
@@ -26,6 +25,7 @@ const DiscoverPage = async () => {
                 imageUrl={replica.profile_image}
                 name={replica.name}
                 replicaId={replica.uuid}
+                chatCount={replica.chat_history_count}
               />
             })}
           </div>
