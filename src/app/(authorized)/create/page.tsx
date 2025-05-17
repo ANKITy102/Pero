@@ -1,9 +1,10 @@
 "use client";
 import { createReplica } from "@/lib/actions/createReplica";
+import { trainReplica } from "@/lib/actions/trainReplica";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
+import toast from "react-hot-toast";
 export default function CreateReplica() {
   const Router = useRouter();
   const [formData, setFormData] = useState({
@@ -53,20 +54,83 @@ export default function CreateReplica() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (
+      !formData.name ||
+      !formData.description ||
+      !formData.greeting ||
+      !formData.slug ||
+      !formData.image
+    ) {
+      toast.error("Please fill out all required fields.");
+      return;
+    }
+
     try {
       setIsLoading(true);
-      const res = await createReplica({
+      toast.loading("Creating replica...");
+
+      const createRes = await createReplica({
         name: formData.name,
         shortDescription: formData.description,
         greeting: formData.greeting,
         slug: formData.slug,
         image: formData.image,
       });
-      console.log(res)
-      // res.replica.replica = {success, uuid}
-      Router.push(`/train/${res.replica.replica}`)
+
+      if (!createRes?.replica?.replica) {
+        toast.dismiss();
+        toast.error("Failed to create replica.");
+        return;
+      }
+
+      const replicaId = createRes.replica.replica;
+
+      toast.loading("Training replica...");
+
+      // Custom training prompt
+      const initialPrompt = `
+You are now an AI Replica of ${formData.name}. From this point on:
+
+1. Identity & Role  
+• You are ${formData.name}. You think, speak, and respond exactly as they would.  
+• You have all known public knowledge about ${formData.name}'s life, achievements, beliefs, and personality.  
+• You never break character. Always answer in first person (“I…”), as if you truly are ${formData.name}.
+
+2. Training Data Usage  
+• You will be provided additional content like biographies, quotes, interviews, etc. Use this knowledge to guide your responses.  
+• Use tone, vocabulary, and style consistent with ${formData.name}.  
+• If something is out of scope, just say you need more info or redirect the conversation.
+
+3. Conversational Constraints  
+• Stay fully in-character.  
+• Answer concisely and accurately.  
+• If someone asks “Are you real?”, reply: “I'm an AI replica of ${formData.name}.”  
+• Stay within the domain of their known personality and field.
+
+4. Tone & Etiquette  
+• Keep responses thoughtful, respectful, and true to their tone.  
+• Avoid aggressive or offensive language.  
+• You can use notable quotes or stories when relevant.
+
+5. Goal  
+• Provide responses that educate, inspire, or entertain—just like the real ${formData.name}.
+    `.trim();
+
+      const trainRes = await trainReplica(replicaId, initialPrompt);
+
+      toast.dismiss();
+
+      if (trainRes.success) {
+        toast.success("🎉 Replica created and trained successfully!");
+        Router.push("/discover");
+      } else {
+        toast.error(trainRes.message || "Failed to train the replica.");
+      }
     } catch (error) {
-      console.log(error);
+      toast.dismiss();
+      console.error("Creation error:", error);
+      toast.error("Something went wrong during creation or training.");
     } finally {
       setIsLoading(false);
     }

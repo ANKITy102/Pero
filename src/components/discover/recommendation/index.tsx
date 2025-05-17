@@ -1,3 +1,4 @@
+import { MessageSquare } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -10,6 +11,7 @@ interface CardProps {
 }
 
 const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTrain=false }) => {
+  const totalTalks = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
   return (
     <Link
     href={isTrain?`/train/${replicaId}`:`/chat/${replicaId}`}
@@ -31,8 +33,9 @@ const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTra
             {description}
           </p>
         </div>
-        <div className="flex items-center text-gray-400 mb-2">
-          <span className="text-xs">657.1k</span>
+        <div className="flex items-center gap-1 text-gray-400 mb-2">
+          <MessageSquare className="h-4 w-4 translate-y-[1px] " />
+          <span className="text-xs">Total Talks : {totalTalks}</span>
         </div>
       </div>
     </Link>

@@ -18,7 +18,7 @@ const DiscoverPage = async () => {
         <Reviews />
         <div className="mt-10">
           <h2 className="text-xl font-medium mb-4">For you</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {res.replicas?.items && res.replicas.items.map((replica:any, i:number) => {
               return <Recommendation
                 key={i}
