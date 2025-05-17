@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ThumbsUp, ThumbsDown, Copy } from "lucide-react";
+import Image from "next/image";
 
 interface ChatMessageProps {
   message: {
@@ -10,9 +11,11 @@ interface ChatMessageProps {
     content: string;
   };
   index: number;
+  userImage:string;
+  replicaImage:string;
 }
 
-export default function ChatMessage({ message, index }: ChatMessageProps) {
+export default function ChatMessage({ message, index,userImage, replicaImage }: ChatMessageProps) {
   const isUser = message.role === "user";
   const messageRef = useRef<HTMLDivElement>(null);
   const [copyTooltip, setCopyTooltip] = useState("Copy");
@@ -41,39 +44,43 @@ export default function ChatMessage({ message, index }: ChatMessageProps) {
       transition={{ duration: 0.3, delay: index * 0.1 }}
       className={`flex ${isUser ? "justify-end" : "justify-start"}`}
     >
-      <div className={`max-w-3xl rounded-lg px-4 py-3 bg-[#1b1b1d] relative`}>
-        {/* Message Content */}
-        <div
-          className="prose prose-invert text-gray-300"
-          dangerouslySetInnerHTML={{ __html: message.content }}
-        />
+      <>
+        {!isUser && <img alt="replica image" className="h-8 w-8 rounded-full mt-2 mr-2" src={replicaImage} width={50} height={50}/>}
+        <div className={`max-w-3xl rounded-lg px-4 py-3 bg-[#1b1b1d] relative`}>
+          {/* Message Content */}
+          <div
+            className="prose prose-invert text-gray-300"
+            dangerouslySetInnerHTML={{ __html: message.content }}
+          />
 
-        {/* Footer icons (like, dislike, copy) */}
-        <div className="flex gap-2 justify-end mt-2 text-gray-500">
-          {!isUser && (
-            <>
-              <ThumbsUp size={16} className="cursor-pointer hover:text-white" />
-              <ThumbsDown
+          {/* Footer icons (like, dislike, copy) */}
+          <div className="flex gap-2 justify-end mt-2 text-gray-500">
+            {!isUser && (
+              <>
+                <ThumbsUp size={16} className="cursor-pointer hover:text-white" />
+                <ThumbsDown
+                  size={16}
+                  className="cursor-pointer hover:text-white"
+                />
+              </>
+            )}
+
+            {/* Tooltip wrapper */}
+            <div className="relative group">
+              <Copy
                 size={16}
+                onClick={handleCopy}
                 className="cursor-pointer hover:text-white"
               />
-            </>
-          )}
-
-          {/* Tooltip wrapper */}
-          <div className="relative group">
-            <Copy
-              size={16}
-              onClick={handleCopy}
-              className="cursor-pointer hover:text-white"
-            />
-            {/* Tooltip */}
-            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 rounded bg-gray-700 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-              {copyTooltip}
-            </span>
+              {/* Tooltip */}
+              <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 rounded bg-gray-700 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                {copyTooltip}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+        {isUser && <img alt="user image" className="h-8 w-8 rounded-full mt-2 ml-2" src={userImage} width={50} height={50}/>}
+      </>
     </motion.div>
   );
 }

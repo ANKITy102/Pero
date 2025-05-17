@@ -12,7 +12,6 @@ export default function TrainReplica({
   replicaId: string;
   replicaName: string;
 }) {
-  console.log("hey id and name", replicaId, replicaName);
   const Router = useRouter();
   const [trainingData, setTrainingData] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);

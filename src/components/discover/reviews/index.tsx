@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Quote, RefreshCw } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Bg1 from "@/assets/discover/rimg1.jpg";
 import Bg2 from "@/assets/discover/rimg2.jpg";
 import Bg3 from "@/assets/discover/rimg3.jpg";
@@ -96,8 +96,15 @@ const index = () => {
     setTimeout(() => {
       setBgIndex((prev) => (prev + 1) % bgImages.length);
       setIsFading(false);
-    }, 300); // 300ms fade out
+    }, 500); 
   };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleRefresh();
+    }, 4000); 
+
+    return () => clearInterval(interval); // cleanup on unmount
+  }, []);
   return (
     <div className="relative flex justify-end w-full min-h-72">
       {/* Left panel - cosmic banner */}

@@ -13,11 +13,15 @@ import { getChatResponse } from "@/lib/actions/chatReplica";
 export default function ChatPage({
   initialMessages,
   replicaId,
-  replicaName
+  replicaName,
+  userImage,
+  replicaImage,
 }: {
   initialMessages: ChatMessageT[];
   replicaId: string;
-  replicaName:string
+  replicaName: string;
+  userImage: string;
+  replicaImage: string;
 }) {
   const [mounted, setMounted] = useState(false);
   const [messages, setMessages] = useState<ChatMessageT[]>([]);
@@ -73,8 +77,8 @@ export default function ChatPage({
   };
 
   return (
-    <div className="flex flex-col h-[82vh] text-white">
-      <main className="flex-1 p-6 overflow-y-auto custom-scrollbar">
+    <div className="flex flex-col h-[84vh] text-white">
+      <main className="flex-1 px-6 overflow-y-auto custom-scrollbar">
         {mounted && (
           <>
             {!hasMessages && (
@@ -109,6 +113,8 @@ export default function ChatPage({
                   key={index}
                   message={{ role: message.role, content: message.content }}
                   index={index}
+                  userImage={userImage}
+                  replicaImage={replicaImage}
                 />
               ))}
               {isLoading && (
@@ -147,7 +153,7 @@ export default function ChatPage({
       </main>
 
       <motion.div
-        className="p-4"
+        className="px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
@@ -175,6 +181,10 @@ export default function ChatPage({
             </div>
           </div>
         </form>
+        <p className="text-sm text-gray-400 mt-2 text-center">
+          You are chatting with replica of{" "}
+          <span className=" text-white">{replicaName}</span>
+        </p>
       </motion.div>
     </div>
   );

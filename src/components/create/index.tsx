@@ -77,7 +77,6 @@ export default function CreateReplica({is_admin}:{is_admin:boolean}) {
         slug: formData.slug,
         image: formData.image,
       });
-      console.log(createRes)
       if (!createRes?.replica?.uuid) {
         toast.dismiss();
         toast.error(createRes.error);
@@ -86,7 +85,6 @@ export default function CreateReplica({is_admin}:{is_admin:boolean}) {
 
       const replicaId = createRes.replica.uuid;
 
-      console.log("lol find==", replicaId)
       // Custom training prompt
       const initialPromptPublic = `
 You are now an AI Replica of ${formData.name}. From this point on:

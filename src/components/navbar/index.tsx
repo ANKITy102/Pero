@@ -31,7 +31,6 @@ const index = async () => {
   if (session?.user) {
     userReplicas = await getUserReplicas();
   }
-  console.log(session)
   return (
     <nav className="container  mx-auto flex items-center justify-between py-4 px-4 md:px-14 border-b-1 border-teal-800">
       <div className="flex items-center">
