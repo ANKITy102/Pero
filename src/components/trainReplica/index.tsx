@@ -51,7 +51,7 @@ export default function TrainReplica({
   return (
     <div className="min-h-[90vh] max-w-7xl mx-auto container ">
       {/* Left Panel */}
-      <div className="hidden md:flex  relative flex-col p-8">
+      <div className="flex  relative flex-col p-8">
         <div className="flex-1 px-12 py-10 flex flex-col justify-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Train Your Replica

@@ -1,6 +1,18 @@
 import React from "react";
 import Link from "next/link";
-import { Activity, Compass, Cpu, Inbox, LayoutDashboard, LogIn, MessageCircle, Settings, Sliders, Sparkles, Zap } from "lucide-react";
+import {
+  Activity,
+  Compass,
+  Cpu,
+  Inbox,
+  LayoutDashboard,
+  LogIn,
+  MessageCircle,
+  Settings,
+  Sliders,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
 import { Send } from "lucide-react";
@@ -16,10 +28,10 @@ export function ButtonOutline() {
 const index = async () => {
   const session = await auth();
   let userReplicas;
-  if(session?.user){
-     userReplicas = await getUserReplicas();
+  if (session?.user) {
+    userReplicas = await getUserReplicas();
   }
-
+  console.log(session)
   return (
     <nav className="container  mx-auto flex items-center justify-between py-4 px-4 md:px-14 border-b-1 border-teal-800">
       <div className="flex items-center">
@@ -47,18 +59,20 @@ const index = async () => {
             <Sparkles size={18} />
             Create
           </Link>
-          <Link
-            href="/request"
-            className="text-white hover:text-green-300 flex items-center gap-1"
-          >
-            <MessageCircle  size={18} />
-            Request
-          </Link>
-         
-          <div
-            className="text-white hover:text-green-300 flex items-center gap-1"
-          >
-           {userReplicas && userReplicas?.replicas && <TrainReplicaDrawer replicas={userReplicas.replicas}/>}
+          {!(session?.user.is_admin) && (
+            <Link
+              href="/request"
+              className="text-white hover:text-green-300 flex items-center gap-1"
+            >
+              <MessageCircle size={18} />
+              Request
+            </Link>
+          )}
+
+          <div className="text-white hover:text-green-300 flex items-center gap-1">
+            {userReplicas && userReplicas?.replicas && (
+              <TrainReplicaDrawer replicas={userReplicas.replicas} />
+            )}
           </div>
 
           <DropdownMenuComp imageUrl={session.user.image} />

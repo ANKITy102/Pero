@@ -25,7 +25,7 @@ export const getAllReplicaRequests = async () => {
     } else {
       // Normal user: only get their own requests
       requests = await ReplicaRequest.find({ userId: session.user.id })
-        .populate("userId", "name email is_admin")
+        .populate("userId", "name email")
         .sort({ createdAt: -1 })
         .lean();
     }
