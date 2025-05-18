@@ -8,7 +8,7 @@ export default function AboutPage() {
           <h2 className="text-4xl font-serif font-bold mb-6 text-white">About Pero</h2>
           <p className="text-xl text-gray-400">
             Pero is a next-generation learning platform that lets you talk to the legends you admire. We combine
-            cutting-edge AI with iconic human wisdom to create lifelike replicas of the world's most inspirational
+            cutting-edge AI with iconic human wisdom to create lifelike replicas of the world&apos;s most inspirational
             personalities.
           </p>
         </div>

@@ -179,7 +179,7 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
             <li>🪪 Assign a unique slug (URL ID)</li>
           </ul>
           <div className="bg-yellow-100 text-yellow-900 text-sm p-3 rounded-md border-l-4 border-yellow-500">
-            ⚠️ <strong>Note:</strong> Your replica will not respond until it's
+            ⚠️ <strong>Note:</strong> Your replica will not respond until it&apos;s
             trained. After creation, remember to upload training data like
             quotes, bios, or interviews.
           </div>

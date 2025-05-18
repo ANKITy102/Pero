@@ -2,7 +2,7 @@
 import { requestReplica } from "@/lib/actions/requestReplica";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from 'react-hot-toast';
 export default function RequestReplica({userId}:{userId?: string}) {
     const Router = useRouter();
@@ -36,7 +36,7 @@ export default function RequestReplica({userId}:{userId?: string}) {
     e.preventDefault();
     try {
       setIsLoading(true);
-      const res = await requestReplica({
+      await requestReplica({
         requestedName: formData.name,
         description: formData.description,
         userId
@@ -72,7 +72,7 @@ export default function RequestReplica({userId}:{userId?: string}) {
             knowledge, and behavior.
           </p>
           <ul className="text-white space-y-2 mb-6">
-            <li>💡 Suggest a name of someone you'd like to chat with</li>
+            <li>💡 Suggest a name of someone you&apos;d like to chat with</li>
             <li>🧾 Add a short description about who they are</li>
             <li>📩 Submit your request for admin approval</li>
           </ul>

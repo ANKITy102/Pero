@@ -1,5 +1,4 @@
 "use client";
-import { requestReplica } from "@/lib/actions/requestReplica";
 import { trainReplica } from "@/lib/actions/trainReplica";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -58,13 +57,13 @@ export default function TrainReplica({
           <p className="text-white/80 mb-6">
             Make your replica come to life by feeding it the right knowledge.
             The better the data you provide, the more accurate and authentic the
-            responses will be — just like you're talking to the real person.
+            responses will be — just like you&apos;re talking to the real person.
           </p>
           <p className="text-white/80 mb-6">
             Replicas learn from the content you upload. This can include
             interviews, biographies, podcasts, speeches, articles, and more. A
             mix of content types helps the replica reflect the original
-            personality's tone, ideas, and thinking style.
+            personality&apos;s tone, ideas, and thinking style.
           </p>
           <ul className="text-white space-y-2 mb-6">
             <li>📚 More data = Smarter and more realistic replica</li>
@@ -104,7 +103,7 @@ export default function TrainReplica({
                 htmlFor="trainingData"
                 className="block text-sm font-medium"
               >
-                Upload content to help {replicaName}'s replica learn
+                Upload content to help {replicaName}&apos;s replica learn
               </label>
               <textarea
                 id="trainingData"

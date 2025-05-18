@@ -41,7 +41,7 @@ export async function requestReplica({
       message: "Request submitted",
       data: plainRequest,
     };
-  } catch (error) {
+  } catch {
     return {
       success: false,
       message: "Internal server error",

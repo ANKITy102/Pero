@@ -22,14 +22,14 @@ export default function TeamPage() {
 
           {/* Introduction */}
           <div className="mb-16">
-            <h2 className="text-2xl text-white font-medium mb-6">Hi, I'm Ankit, the solo developer behind this platform.</h2>
+            <h2 className="text-2xl text-white font-medium mb-6">Hi, I&apos;m Ankit, the solo developer behind this platform.</h2>
             <p className="text-lg text-gray-400 mb-6">
-              I've built this project from the ground up — designing the frontend, coding the backend, and crafting the
-              overall experience you see today. It's been a challenging but rewarding journey turning this vision into
+              I&apos;ve built this project from the ground up — designing the frontend, coding the backend, and crafting the
+              overall experience you see today. It&apos;s been a challenging but rewarding journey turning this vision into
               reality.
             </p>
             <p className="text-lg text-gray-400">
-              Thanks for stopping by and exploring the platform! I'm continuously working to improve it and add new
+              Thanks for stopping by and exploring the platform! I&apos;m continuously working to improve it and add new
               experiences.
             </p>
           </div>

@@ -1,6 +1,5 @@
-import { Star, BookmarkIcon } from "lucide-react";
+import {  BookmarkIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
 
 interface WaveCardType {
   imageUrl: string;

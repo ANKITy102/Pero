@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@/lib/auth";
+import { Replica } from "@/lib/types/types";
 
 export async function getUserReplicas() {
   try {
@@ -35,7 +36,7 @@ export async function getUserReplicas() {
       };
     }
      const userReplicas = data.items.filter(
-      (replica: any) => replica.ownerID === session.user.sensayUserId
+      (replica: Replica) => replica.ownerID === session.user.sensayUserId
     );
 
     return {

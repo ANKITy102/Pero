@@ -87,7 +87,7 @@ const initialColors = [
   "bg-blue-500",
   "bg-yellow-500",
 ];
-const index = () => {
+const Index = () => {
   const [bgIndex, setBgIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
@@ -179,4 +179,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

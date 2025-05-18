@@ -3,13 +3,13 @@ import { getChatHistory } from "@/lib/actions/getChatHistory";
 import { getReplica } from "@/lib/actions/getReplica";
 import { auth } from "@/lib/auth";
 
-interface ChatPageProps {
-  params: {
-    uuid: string; // This is the replicaId
-  };
-}
 
-export default async function ChatPage({ params }: ChatPageProps) {
+
+export default async function ChatPage({
+  params,
+}: {
+  params: Promise<{ uuid: string }>
+}) {
   const { uuid: replicaId } = await params;
   const session = await auth();
   const response = await getChatHistory(replicaId);

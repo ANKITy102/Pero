@@ -43,7 +43,7 @@ export default function ChatPage({
     setInput(e.target.value);
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim()) return;
 
@@ -59,7 +59,6 @@ export default function ChatPage({
       original_message_id: null,
       replica_slug: "",
       user_uuid: "",
-      sources: [],
     };
 
     setMessages((prev) => [...prev, userMessage]);
@@ -94,7 +93,7 @@ export default function ChatPage({
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                  Hi, I'm a trained replica of {replicaName}.
+                  Hi, I&apos;m a trained replica of {replicaName}.
                 </motion.h1>
                 <motion.p
                   className="text-2xl text-gray-400"
@@ -120,7 +119,7 @@ export default function ChatPage({
               {isLoading && (
                 <div className="flex items-center space-x-2 animate-pulse text-sm text-gray-400 px-4 py-2">
                   <BotIcon className="h-4 w-4 text-primary animate-bounce" />
-                  <span>{replicaName}'s replica is thinking...</span>
+                  <span>{replicaName}&apos;s replica is thinking...</span>
                 </div>
               )}
             </div>
@@ -141,7 +140,6 @@ export default function ChatPage({
                       const prompt =
                         suggestion.title + " " + suggestion.subtitle;
                       setInput(prompt);
-                      handleSubmit(new Event("submit") as any);
                     }}
                     delay={0.7 + index * 0.1}
                   />

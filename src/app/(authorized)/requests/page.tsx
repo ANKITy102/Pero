@@ -34,7 +34,7 @@ const page = async () => {
           ) : (
             <>
               <p className="text-white/80 mb-6">
-                Here you can track all the replicas you've requested. Once approved by admins, they’ll be trained and available for interaction!
+                Here you can track all the replicas you&apos;ve requested. Once approved by admins, they’ll be trained and available for interaction!
               </p>
               <ul className="text-white space-y-2 mb-6">
                 <li>🧠 View status of your requested AI replicas</li>

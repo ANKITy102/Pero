@@ -1,27 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Activity,
-  Compass,
-  Cpu,
-  Inbox,
   LayoutDashboard,
   LogIn,
   MessageCircle,
-  Settings,
-  Sliders,
   Sparkles,
-  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
-import { Send } from "lucide-react";
-import Image from "next/image";
 import { DropdownMenuComp } from "./dropdown";
 import { auth } from "@/lib/auth";
 import TrainReplicaDrawer from "@/components/drawer";
 import { getUserReplicas } from "@/lib/actions/getUserReplica";
-import { carterOne } from "@/app/font";
 export function ButtonOutline() {
   return <Button variant="outline">Outline</Button>;
 }

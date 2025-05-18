@@ -143,7 +143,6 @@ import {
   AlertCircle,
   User,
   Mail,
-  UserRoundIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -209,7 +208,7 @@ export default function RequestCard({
       if (!res.success) {
         setCurrentStatus(status);
       }
-    } catch (err) {
+    } catch {
       setCurrentStatus(status); // rollback
     } finally {
       setLoading(false);

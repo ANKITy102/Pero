@@ -12,7 +12,6 @@ interface CardProps {
 }
 
 const Index: React.FC<CardProps> = ({ imageUrl,name,replicaId,description, isTrain=false, chatCount=0 }) => {
-  const totalTalks = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
   return (
     <Link
     href={isTrain?`/train/${replicaId}`:`/chat/${replicaId}`}

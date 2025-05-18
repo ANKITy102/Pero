@@ -36,7 +36,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user }) {
       if(!user) return false;
       return true;
     },

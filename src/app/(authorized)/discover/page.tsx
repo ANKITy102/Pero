@@ -4,6 +4,7 @@ import Reviews from "@/components/discover/reviews";
 import Recommendation from "@/components/discover/recommendation";
 import { getReplicas } from "@/lib/actions/getReplicas";
 import { auth } from "@/lib/auth";
+import { Replica } from "@/lib/types/types";
 
 const DiscoverPage = async () => {
   const res = await getReplicas();
@@ -26,7 +27,7 @@ const DiscoverPage = async () => {
             <h2 className="text-xl font-medium mb-4">For you</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {res.replicas?.items &&
-                res.replicas.items.map((replica: any, i: number) => {
+                res.replicas.items.map((replica: Replica, i: number) => {
                   return (
                     <Recommendation
                       key={i}
@@ -47,7 +48,7 @@ const DiscoverPage = async () => {
               <h2 className="text-xl font-medium mb-4">For you</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {res.replicas?.items &&
-                  res.replicas.items.map((replica: any, i: number) => {
+                  res.replicas.items.map((replica: Replica, i: number) => {
                     if (replica.ownerID != session?.user.sensayUserId)
                       return (
                         <Recommendation
@@ -66,7 +67,7 @@ const DiscoverPage = async () => {
               <h2 className="text-xl font-medium mb-4">Your replica</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {res.replicas?.items &&
-                  res.replicas.items.map((replica: any, i: number) => {
+                  res.replicas.items.map((replica: Replica, i: number) => {
                     if (replica.ownerID == session?.user.sensayUserId)
                       return (
                         <Recommendation

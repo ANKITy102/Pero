@@ -2,12 +2,12 @@ import TrainReplica from "@/components/trainReplica";
 import { getReplica } from "@/lib/actions/getReplica";
 import React, { FC } from "react";
 
-interface PageProps {
-  params: {
-    uuid: string;
-  };
-}
-const page: FC<PageProps> = async ({ params }) => {
+
+const Page = async ({
+  params,
+}: {
+  params: Promise<{ uuid: string }>
+}) => {
   const { uuid: replicaId } = await params;
   const response2 = await getReplica(replicaId);
   if (!response2 || response2.success == false) {
@@ -29,4 +29,4 @@ const page: FC<PageProps> = async ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

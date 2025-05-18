@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ThumbsUp, ThumbsDown, Copy } from "lucide-react";
-import Image from "next/image";
 
 interface ChatMessageProps {
   message: {

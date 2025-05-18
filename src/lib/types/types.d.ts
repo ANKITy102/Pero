@@ -14,8 +14,6 @@ export interface Replica {
   chat_history_count: number;
   system_message: string;
   private: boolean;
-  telegram_integration: any;
-  discord_integration: any;
   profileImage: string;
   shortDescription: string;
   greeting: string;
@@ -28,7 +26,6 @@ export interface Replica {
     model: string;
     memoryMode: string;
     systemMessage: string;
-    tools: any[];
   };
 }
 
@@ -44,6 +41,5 @@ export interface ChatMessageT {
   original_message_id: string | null;
   replica_slug: string;
   user_uuid: string;
-  sources: any[]; // You can make a specific type if you know what's inside
 }
 
