@@ -300,7 +300,7 @@ export default function RequestCard({
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent className="bg-gray-900 border-gray-700 text-white">
-                <SelectItem value="not_started" className="focus:bg-gray-800">
+                <SelectItem value="not_started"  className="focus:bg-gray-800">
                   Not Started
                 </SelectItem>
                 <SelectItem value="in_progress" className="focus:bg-gray-800">

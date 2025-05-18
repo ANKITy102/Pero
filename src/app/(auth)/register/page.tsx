@@ -1,7 +1,7 @@
 import React from "react";
 import SignupForm from "@/components/auth/signupForm"
 const page = () => {
-  return <div className="w-full h-full flex justify-center py-10">
+  return <div className="relative z-50  w-full h-full flex justify-center ">
     <SignupForm/>
   </div>
 };

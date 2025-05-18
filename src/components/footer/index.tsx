@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Logo */}
         <div className="mb-16 text-center">
-            <span className="text-8xl italic font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="text-8xl px-3 italic font-bold font-carter bg-gradient-to-r from-[#c41df3] to-blue-400 bg-clip-text text-transparent">
               
                 Pero
               </span>

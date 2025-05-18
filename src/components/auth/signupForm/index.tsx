@@ -93,12 +93,12 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 ">
+    <div className="bg-black/50 py-10 h-full mt-10 w-full rounded-xl  max-w-md mx-auto px-7 mb-5 ">
       <div className="flex justify-center mb-6">
         <div className="flex items-center">
           <Link
             href="/"
-            className="text-6xl italic font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+            className="text-6xl px-2 italic font-bold font-carter bg-gradient-to-r from-[#c41df3] to-blue-400 bg-clip-text text-transparent"
           >
             Pero
           </Link>
@@ -107,15 +107,15 @@ export default function LoginForm() {
 
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">
-          Log in to your account
+          Create your account
         </h1>
         <p className="text-white">
-          Don&apos;t have an account?{" "}
+          Already have an account?{" "}
           <Link
-            href="/signup"
+            href="/login"
             className="text-green-300 hover:text-green-700 font-medium"
           >
-            Sign up
+            Sign in
           </Link>
         </p>
       </div>

@@ -64,11 +64,11 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4">
-      <div className="flex justify-center mb-6">
+    <div className="bg-black/50 py-10 h-full mt-10 w-full rounded-xl  max-w-md mx-auto px-7"> 
+      <div className="flex justify-center ">
         <Link
           href="/"
-          className="text-6xl italic font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+          className="text-6xl px-2 italic font-bold font-carter bg-gradient-to-r from-[#c41df3] to-blue-400 bg-clip-text text-transparent"
         >
           Pero
         </Link>
@@ -81,7 +81,7 @@ export default function LoginForm() {
         <p className="text-white">
           Don&apos;t have an account?{" "}
           <Link
-            href="/signup"
+            href="/register"
             className="text-green-300 hover:text-green-700 font-medium"
           >
             Sign up
@@ -126,7 +126,7 @@ export default function LoginForm() {
                 <FormControl>
                   <Input
                     placeholder="Enter your username"
-                    className="h-12"
+                    className="h-12 placeholder:text-gray-200"
                     {...field}
                   />
                 </FormControl>
@@ -145,7 +145,7 @@ export default function LoginForm() {
                   <Input
                     type="password"
                     placeholder="Enter your password"
-                    className="h-12"
+                    className="h-12 placeholder:text-gray-300"
                     {...field}
                   />
                 </FormControl>

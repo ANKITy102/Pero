@@ -21,6 +21,7 @@ import { DropdownMenuComp } from "./dropdown";
 import { auth } from "@/lib/auth";
 import TrainReplicaDrawer from "@/components/drawer";
 import { getUserReplicas } from "@/lib/actions/getUserReplica";
+import { carterOne } from "@/app/font";
 export function ButtonOutline() {
   return <Button variant="outline">Outline</Button>;
 }
@@ -32,11 +33,11 @@ const index = async () => {
     userReplicas = await getUserReplicas();
   }
   return (
-    <nav className="container  mx-auto flex items-center justify-between py-4 px-4 md:px-14 border-b-1 border-teal-800">
+    <nav className="container relative z-50  mx-auto flex items-center justify-between py-4 px-4 md:px-14 border-b-1 border-teal-800">
       <div className="flex items-center">
         <Link href="/" className="mr-8">
           <div className="flex items-center">
-            <span className="text-5xl italic font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className={`font-carter px-2 text-5xl italic font-bold bg-gradient-to-r from-[#c41df3] to-blue-400 bg-clip-text text-transparent`}>
               Pero
             </span>
           </div>
