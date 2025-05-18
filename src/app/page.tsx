@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import HeroSection from "@/components/landingPage/heroSection"
 import AboutPage from "@/components/landingPage/aboutPage";
+import TeamPage from "@/components/landingPage/teamPage";
 export default function Home() {
   return (
     <>
@@ -25,6 +26,7 @@ export default function Home() {
         <HeroSection/>
       </main>
       <AboutPage/>
+      <TeamPage/>
       <Footer />
     </>
   );
