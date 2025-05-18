@@ -5,7 +5,19 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-export default function CreateReplica({is_admin}:{is_admin:boolean}) {
+import FileUploadDemo from "../fileuploader";
+import { Upload } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
+export default function CreateReplica({ is_admin }: { is_admin: boolean }) {
   const Router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
@@ -16,7 +28,7 @@ export default function CreateReplica({is_admin}:{is_admin:boolean}) {
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const fields = [
     {
       id: "name",
@@ -44,6 +56,15 @@ export default function CreateReplica({is_admin}:{is_admin:boolean}) {
       placeholder: "https://dummy.com/elon-musk.jpg",
     },
   ];
+
+  const handleImageUpload = (url: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      image: url,
+    }));
+    setIsDialogOpen(false);
+    toast.success("Image uploaded successfully!");
+  };
 
   const handleChange = (id: string, value: string) => {
     setFormData((prev) => ({
@@ -141,7 +162,10 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
 • Provide helpful, accurate, and personalized responses strictly within the scope of supplied information.  
       `.trim();
 
-      const trainRes = await trainReplica(replicaId, (is_admin?initialPromptPublic:initialPromptPrivate));
+      const trainRes = await trainReplica(
+        replicaId,
+        is_admin ? initialPromptPublic : initialPromptPrivate
+      );
 
       toast.dismiss();
 
@@ -179,9 +203,9 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
             <li>🪪 Assign a unique slug (URL ID)</li>
           </ul>
           <div className="bg-yellow-100 text-yellow-900 text-sm p-3 rounded-md border-l-4 border-yellow-500">
-            ⚠️ <strong>Note:</strong> Your replica will not respond until it&apos;s
-            trained. After creation, remember to upload training data like
-            quotes, bios, or interviews.
+            ⚠️ <strong>Note:</strong> Your replica will not respond until
+            it&apos;s trained. After creation, remember to upload training data
+            like quotes, bios, or interviews.
           </div>
         </div>
         <div className="absolute top-8 left-8 w-8 h-8 border-t-2 border-r-2 -rotate-90 border-white/30"></div>
@@ -212,8 +236,27 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
           <form onSubmit={handleSubmit} className="space-y-6">
             {fields.map((field) => (
               <div key={field.id} className="space-y-2">
-                <label htmlFor={field.id} className="block text-sm font-medium">
+                <label htmlFor={field.id} className=" flex gap-x-2 text-sm font-medium">
                   {field.label}
+                  {field.id === "image" && (
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Badge  className=" hover:cursor-pointer  hover:bg-orange-700 bg-green-500">
+                         <Upload className=" mr-1"/> Upload
+                      </Badge>
+                    </DialogTrigger>
+                    <DialogContent className="bg-black border-none text-white">
+                      <DialogHeader>
+                        <DialogTitle>Upload Image</DialogTitle>
+                        <DialogDescription>
+                          Upload an image and set it as the replica's profile
+                          picture.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <FileUploadDemo onUploadComplete={handleImageUpload} />
+                    </DialogContent>
+                  </Dialog>
+                )}
                 </label>
                 <input
                   id={field.id}
@@ -223,9 +266,9 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
                   onChange={(e) => handleChange(field.id, e.target.value)}
                   className="w-full px-4 py-2 text-md rounded-lg bg-gray-900 border border-gray-800 focus:border-green-300 focus:ring-green-300 focus:outline-none"
                 />
+                
               </div>
             ))}
-
             <button
               type="submit"
               className="w-full bg-green-700 hover:bg-green-800 text-white font-medium py-3 px-4 rounded-lg transition-colors"
@@ -243,6 +286,6 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
           </form>
         </div>
       </div>
-      </>
+    </>
   );
 }

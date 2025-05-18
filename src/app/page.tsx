@@ -1,5 +1,5 @@
 import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Footer from "@/components/landingPage/footer";
 import HeroSection from "@/components/landingPage/heroSection"
 import AboutPage from "@/components/landingPage/aboutPage";
 import TeamPage from "@/components/landingPage/teamPage";
