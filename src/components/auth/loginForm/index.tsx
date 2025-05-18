@@ -64,7 +64,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="bg-black/50 py-10 h-full mt-10 w-full rounded-xl  max-w-md mx-auto px-7"> 
+    <div className="bg-black/50 py-10 h-full mt-10 mb-5 w-full rounded-xl  max-w-md mx-auto px-7"> 
       <div className="flex justify-center ">
         <Link
           href="/"

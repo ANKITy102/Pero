@@ -5,7 +5,7 @@ import React from "react";
 const page = async () => {
   const session = await auth();
   return (
-    <div className="flex min-h-screen container">
+    <div className="flex min-h-screen container mx-auto">
       <CreateReplica is_admin={!!session?.user.is_admin} />
     </div>
   );

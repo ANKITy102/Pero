@@ -34,7 +34,7 @@ export function TrainReplicaDrawer({ replicas }: TrainReplicaDrawerProps) {
           Train
         </div>
       </DrawerTrigger>
-      <DrawerContent className="bg-[#131316] text-white">
+      <DrawerContent className="bg-[#131316] pb-10 text-white">
         <div className="mx-auto w-full max-w-6xl">
           <DrawerHeader>
             <DrawerTitle className="text-white text-2xl font-bold">
@@ -60,13 +60,7 @@ export function TrainReplicaDrawer({ replicas }: TrainReplicaDrawerProps) {
               />
             ))}
           </div>
-          <DrawerFooter>
-            <DrawerClose asChild>
-              <Button className="w-52 mx-auto hover:cursor-pointer bg-green-700 hover:bg-green-800 text-white font-medium py-3 px-4 rounded-lg transition-colors">
-                Close
-              </Button>
-            </DrawerClose>
-          </DrawerFooter>
+          
         </div>
       </DrawerContent>
     </Drawer>
