@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import { useRef, useState } from "react"
-import { motion } from "motion/react"
-import { IconUpload, IconLoader, IconCheck } from "@tabler/icons-react"
-import { useDropzone } from "react-dropzone"
+import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
+import { motion } from "motion/react";
+import { IconUpload, IconLoader, IconCheck } from "@tabler/icons-react";
+import { useDropzone } from "react-dropzone";
 
 const mainVariant = {
   initial: {
@@ -16,7 +16,7 @@ const mainVariant = {
     y: -20,
     opacity: 0.9,
   },
-}
+};
 
 const secondaryVariant = {
   initial: {
@@ -25,44 +25,46 @@ const secondaryVariant = {
   animate: {
     opacity: 1,
   },
-}
+};
 
 export const FileUpload = ({
   onChange,
   onUpload,
 }: {
-  onChange?: (file: File | null) => void
-  onUpload?: (file: File) => Promise<void>
+  onChange?: (file: File | null) => void;
+  onUpload?: (file: File) => Promise<void>;
 }) => {
-  const [file, setFile] = useState<File | null>(null)
-  const [uploading, setUploading] = useState(false)
-  const [uploaded, setUploaded] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [file, setFile] = useState<File | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = async (newFiles: File[]) => {
     if (newFiles.length > 0) {
-      const selectedFile = newFiles[0]
-      setFile(selectedFile)
-      onChange && onChange(selectedFile)
+      const selectedFile = newFiles[0];
+      setFile(selectedFile);
+      if (onChange) {
+        onChange(selectedFile);
+      }
 
       if (onUpload) {
         try {
-          setUploading(true)
-          setUploaded(false)
-          await onUpload(selectedFile)
-          setUploaded(true)
+          setUploading(true);
+          setUploaded(false);
+          await onUpload(selectedFile);
+          setUploaded(true);
         } catch (error) {
-          console.error("Upload failed:", error)
+          console.error("Upload failed:", error);
         } finally {
-          setUploading(false)
+          setUploading(false);
         }
       }
     }
-  }
+  };
 
   const handleClick = () => {
-    fileInputRef.current?.click()
-  }
+    fileInputRef.current?.click();
+  };
 
   const { getRootProps, isDragActive } = useDropzone({
     multiple: false,
@@ -73,9 +75,9 @@ export const FileUpload = ({
     noClick: true,
     onDrop: handleFileChange,
     onDropRejected: (error) => {
-      console.log(error)
+      console.log(error);
     },
-  })
+  });
 
   return (
     <div className="w-full" {...getRootProps()}>
@@ -108,7 +110,7 @@ export const FileUpload = ({
                 layoutId="file-upload"
                 className={cn(
                   "relative overflow-hidden z-40 bg-neutral-900 flex flex-col items-start justify-start md:h-24 p-4 mt-4 w-full mx-auto rounded-md",
-                  "shadow-sm",
+                  "shadow-sm"
                 )}
               >
                 <div className="flex justify-between w-full items-center gap-4">
@@ -121,8 +123,12 @@ export const FileUpload = ({
                     {file.name}
                   </motion.p>
                   <div className="flex items-center gap-2">
-                    {uploading && <IconLoader className="h-5 w-5 text-blue-500 animate-spin" />}
-                    {uploaded && <IconCheck className="h-5 w-5 text-green-500" />}
+                    {uploading && (
+                      <IconLoader className="h-5 w-5 text-blue-500 animate-spin" />
+                    )}
+                    {uploaded && (
+                      <IconCheck className="h-5 w-5 text-green-500" />
+                    )}
                     <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -144,7 +150,11 @@ export const FileUpload = ({
                     {file.type}
                   </motion.p>
 
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} layout>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    layout
+                  >
                     modified {new Date(file.lastModified).toLocaleDateString()}
                   </motion.p>
                 </div>
@@ -161,7 +171,7 @@ export const FileUpload = ({
                 }}
                 className={cn(
                   "relative group-hover/file:shadow-2xl z-40 bg-neutral-900 flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md",
-                  "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]",
+                  "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
                 )}
               >
                 {isDragActive ? (
@@ -189,17 +199,17 @@ export const FileUpload = ({
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
 export function GridPattern() {
-  const columns = 41
-  const rows = 11
+  const columns = 41;
+  const rows = 11;
   return (
     <div className="flex bg-neutral-900 shrink-0 flex-wrap justify-center items-center gap-x-px gap-y-px  scale-105">
       {Array.from({ length: rows }).map((_, row) =>
         Array.from({ length: columns }).map((_, col) => {
-          const index = row * columns + col
+          const index = row * columns + col;
           return (
             <div
               key={`${col}-${row}`}
@@ -209,9 +219,9 @@ export function GridPattern() {
                   : "bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]"
               }`}
             />
-          )
-        }),
+          );
+        })
       )}
     </div>
-  )
+  );
 }

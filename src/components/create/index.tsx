@@ -15,7 +15,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 export default function CreateReplica({ is_admin }: { is_admin: boolean }) {
   const Router = useRouter();
@@ -249,7 +248,7 @@ You are now an AI Assistant created by the user. Your name is ${formData.name}. 
                       <DialogHeader>
                         <DialogTitle>Upload Image</DialogTitle>
                         <DialogDescription>
-                          Upload an image and set it as the replica's profile
+                          Upload an image and set it as the replica&apos;s profile
                           picture.
                         </DialogDescription>
                       </DialogHeader>

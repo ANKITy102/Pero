@@ -9,14 +9,15 @@ export default function FileUploadDemo({
 }) {
   const [file, setFile] = useState<File | null>(null);
 
-  const handleFileChange = (file: File | null) => {
-    setFile(file);
+  const handleFileChange = (ff: File | null) => {
+    setFile(ff);
     console.log("File selected:", file);
   };
 
-  const handleUpload = async (file: File) => {
+  const handleUpload = async (ff: File) => {
+    
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", ff);
     formData.append("upload_preset", process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!);
     formData.append("cloud_name", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME!);
 
