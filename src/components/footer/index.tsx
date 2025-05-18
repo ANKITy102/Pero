@@ -3,7 +3,7 @@ import { Linkedin, Facebook, Globe } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#131316] text-white py-8 mt-20 overflow-hidden">
+    <footer className="relative bg-[#131316] text-white pt-14 pb-8 border-t border-gray-500 overflow-hidden">
       {/* Hexagon Pattern Background */}
         
       <div
@@ -61,7 +61,7 @@ export default function Footer() {
           </Link>
 
           <Link
-            href="https://www.devdimensions.com"
+            href="https://www.dummy.com"
             className="flex items-center gap-2 hover:text-green-300 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
