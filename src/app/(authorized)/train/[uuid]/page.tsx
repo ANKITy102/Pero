@@ -1,6 +1,6 @@
 import TrainReplica from "@/components/trainReplica";
 import { getReplica } from "@/lib/actions/getReplica";
-import React, { FC } from "react";
+import React from "react";
 
 
 const Page = async ({
