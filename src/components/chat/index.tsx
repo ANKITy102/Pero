@@ -106,7 +106,7 @@ export default function ChatPage({
               </motion.div>
             )}
 
-            <div className="space-y-4">
+            <div className="space-y-4 pb-2">
               {processedMessages.map((message, index) => (
                 <ChatMessage
                   key={index}
