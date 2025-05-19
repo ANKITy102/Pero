@@ -3,6 +3,7 @@ import Image1 from "@/assets/landingPage/image1.png"
 import Image2 from "@/assets/landingPage/image2.png"
 import Image3 from "@/assets/landingPage/image3.png"
 import Image4 from "@/assets/landingPage/image4.png"
+import Image5 from "@/assets/landingPage/image5.png"
 const FeatureCard = ({
   tag,
   title,
@@ -73,20 +74,27 @@ export default function FeatureCards() {
       />
 
       <FeatureCard
-        tag="INSPIRATION & GROWTH"
-        title="Get inspired by the habits and wisdom of legends."
-        description="Learn about the mindset, routines, and philosophies of world-changing figures like Cristiano Ronaldo and Steve Jobs. Transform your own growth journey through authentic conversations."
+        tag="CUSTOM REPLICA"
+        title="Bring your own AI companion to life."
+        description="Craft a unique assistant inspired by your thoughts, memories, or favorite themes. Whether it's a mentor, friend, or custom guide — your personal AI replica evolves with you."
         imageSrc={Image3.src}
         imageAlt="Inspired person using a device for learning"
       />
 
       <FeatureCard
-        tag="KNOWLEDGE PRESERVATION"
-        title="Preserve and evolve wisdom for future generations."
-        description="Our AI replicas continuously learn and improve, keeping timeless knowledge alive and accessible in a conversational format that feels truly human."
+        tag="EASY TRAINING"
+        title="Shape your replica with knowledge that matters to you."
+        description="Feed it with stories, notes, and new insights anytime. Train and retrain your AI replica as often as you want — the more you share, the smarter and more helpful it becomes."
         imageSrc={Image4.src}
         imageAlt="Digital preservation of historical knowledge"
         reverse={true}
+      />
+      <FeatureCard
+        tag="KNOWLEDGE PRESERVATION"
+        title="Preserve and evolve wisdom for future generations."
+        description="Our AI replicas continuously learn and improve, keeping timeless knowledge alive and accessible in a conversational format that feels truly human."
+        imageSrc={Image5.src}
+        imageAlt="Digital preservation of historical knowledge"
       />
     </section>
   );
