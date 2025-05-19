@@ -17,7 +17,8 @@ import {
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { Loader2 } from "lucide-react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 // Updated form schema
 const formSchema = z.object({
@@ -33,6 +34,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function LoginForm() {
+  const Router = useRouter();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -75,9 +77,10 @@ export default function LoginForm() {
       setIsLoading2(false);
 
       if (res?.ok) {
-        redirect("/discover")
+
+        Router.push("/discover");
       } else {
-        alert("Login failed");
+        toast.error("Registration failed");
         // show toast or error message
       }
     } catch (err) {
@@ -207,7 +210,7 @@ export default function LoginForm() {
             className="w-full h-12 bg-indigo-600 hover:cursor-pointer hover:bg-indigo-700 text-white"
             disabled={isLoading || isLoading2}
           >
-            {isLoading ? (
+            {isLoading2 ? (
             <>
               <Loader2 className="animate-spin" />
               Please wait

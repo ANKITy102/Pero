@@ -16,7 +16,8 @@ import {
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { Loader2 } from "lucide-react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   username: z
@@ -30,6 +31,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function LoginForm() {
+  const Router = useRouter();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,11 +52,10 @@ export default function LoginForm() {
       callbackUrl: "/discover",
     });
     setIsLoading2(false);
-
     if (res?.ok) {
-      redirect("/discover");
+      Router.push("/discover");
     } else {
-      alert("Login failed");
+      toast.error("Login failed");
     }
   };
 
