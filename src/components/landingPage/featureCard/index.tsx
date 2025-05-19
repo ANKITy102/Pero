@@ -1,5 +1,8 @@
 import Image from "next/image";
-import ai_replica from "@/assets/landingPage/ai_replicas.png";
+import Image1 from "@/assets/landingPage/image1.png"
+import Image2 from "@/assets/landingPage/image2.png"
+import Image3 from "@/assets/landingPage/image3.png"
+import Image4 from "@/assets/landingPage/image4.png"
 const FeatureCard = ({
   tag,
   title,
@@ -28,7 +31,7 @@ const FeatureCard = ({
             alt={imageAlt}
             width={600}
             height={400}
-            className="w-full h-full rounded-xl object-cover"
+            className="w-full h-full min-h-96 rounded-xl object-cover"
           />
         </div>
         <div className="md:w-1/2 p-8 flex flex-col justify-center">
@@ -56,7 +59,7 @@ export default function FeatureCards() {
         tag="AI REPLICAS"
         title="Engage with AI-powered replicas of iconic personalities."
         description="Chat naturally with detailed, evolving AI versions of legendary figures — from Elon Musk’s innovation insights to Marie Curie’s scientific breakthroughs. Experience learning like never before."
-        imageSrc={ai_replica.src}
+        imageSrc={Image1.src}
         imageAlt="AI interaction concept with iconic figure"
       />
 
@@ -64,7 +67,7 @@ export default function FeatureCards() {
         tag="PERSONALIZED LEARNING"
         title="Conversations that adapt to your curiosity."
         description="Ask questions, dive deeper, and explore ideas at your own pace. Our AI remembers past chats to provide context-aware responses tailored just for you."
-        imageSrc={ai_replica.src}
+        imageSrc={Image2.src}
         imageAlt="Student interacting with AI on digital device"
         reverse={true}
       />
@@ -73,7 +76,7 @@ export default function FeatureCards() {
         tag="INSPIRATION & GROWTH"
         title="Get inspired by the habits and wisdom of legends."
         description="Learn about the mindset, routines, and philosophies of world-changing figures like Cristiano Ronaldo and Steve Jobs. Transform your own growth journey through authentic conversations."
-        imageSrc={ai_replica.src}
+        imageSrc={Image3.src}
         imageAlt="Inspired person using a device for learning"
       />
 
@@ -81,7 +84,7 @@ export default function FeatureCards() {
         tag="KNOWLEDGE PRESERVATION"
         title="Preserve and evolve wisdom for future generations."
         description="Our AI replicas continuously learn and improve, keeping timeless knowledge alive and accessible in a conversational format that feels truly human."
-        imageSrc={ai_replica.src}
+        imageSrc={Image4.src}
         imageAlt="Digital preservation of historical knowledge"
         reverse={true}
       />
