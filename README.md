@@ -1,7 +1,7 @@
 # 🧠 Pero – Chat with AI Replicas of Great Minds
 
 <div align="center">
-  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747650666/Screenshot_2025-05-19_3.59.22_PM_ikxs82.png" alt="Pero Demo" width="90%" />
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747650666/Screenshot_2025-05-19_3.59.22_PM_ikxs82.png" alt="Pero Demo" width="80%" />
   <p><strong>Experience immersive, intelligent conversations with the legends of the world.</strong></p>
 </div>
 
@@ -41,7 +41,6 @@ Whether it’s learning from the discipline of ⚽ Cristiano Ronaldo, the vision
 
 That’s the dream I built **Pero** on. 💡🛠️
 
----
 
 ## 🚀 What Pero Does
 
@@ -55,17 +54,25 @@ There are two types of replicas:
 
 It’s not just a chatbot. 🛑 It’s a way to preserve, interact with, and learn from the minds that shaped the world 🌍 — or even from memories you create 🧬.
 
----
 
 ## ✨ Key Features
 
-### 🧠 AI Replicas of Legends  
+### 🧠 AI Replicas of Legends
+<div align="center">
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747655007/Screenshot_2025-05-19_5.08.46_PM_swr1p9.png" alt="Pero Demo" width="80%" />
+</div>
 Interact with replicas of iconic personalities — from scientists and entrepreneurs to athletes and artists. Get their wisdom in their tone, language, and mindset.
 
-### 🛠️ Create Your Own Replicas  
+### 🛠️ Create Your Own Replicas
+<div align="center">
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747654636/Screenshot_2025-05-19_5.05.57_PM_k7bbzi.png" alt="Pero Demo" width="80%" />
+</div>
 Train your personal AI assistant using stories, memories, notes, or preferences. Whether for journaling, life reflections, or fun — your AI learns only from you.
 
-### 💬 Realistic Conversations  
+### 💬 Realistic Conversations
+<div align="center">
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747655116/Screenshot_2025-05-19_5.14.44_PM_nd88gp.png" alt="Pero Demo" width="80%" />
+</div>
 All replicas respond in first person (“I…”) and never break character. They feel authentic, personalized, and context-aware.
 
 ### 📚 Learning Through Dialogue  
@@ -77,7 +84,6 @@ Need motivation? Curious about their daily routines? Want advice for a decision?
 ### 🔐 Private & Public Modes  
 Keep replicas personal, or submit them to be public so others can learn too. Admins verify and maintain quality for public-facing replicas.
 
----
 
 ## 🧪 Tech Stack
 
@@ -90,7 +96,6 @@ Pero is built using modern and scalable technologies to ensure a smooth, fast, a
 - **Zod, Axios, Zustand, React Hook Form** – For type-safe, reactive, and smooth form handling and API calls.
 - **Vercel** – Seamless deployment with CI/CD and preview environments.
 
----
 
 ## 🔮 Future Roadmap
 
@@ -116,7 +121,6 @@ Here’s what’s coming next as **Pero** evolves:
 - 💎 **Subscription & Monetization**  
   To keep Pero growing and delivering premium features like voice conversations and priority access, we’ll introduce subscription plans. Subscribers will enjoy enhanced interactions, early access to new replicas, and exclusive training tools.
 
----
 
 ## 👨‍💻 Meet the Creator
 
@@ -130,7 +134,6 @@ So, I built **Pero** — a platform that lets us not just learn from the greats,
 
 Thank you for checking it out — and I hope **Pero** adds value to your growth journey 🚀.
 
----
 
 ## ⚙️ Setup
 
