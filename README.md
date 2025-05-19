@@ -13,6 +13,7 @@
 - [💡 Tech Stack](#-tech-stack)
 - [🚀 Future Roadmap](#-future-roadmap)
 - [🙋‍♂️ Meet the Creator](#-meet-the-creator)
+- [⚙️ Setup](#-setup)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -54,8 +55,7 @@ There are two types of replicas:
 
 It’s not just a chatbot. 🛑 It’s a way to preserve, interact with, and learn from the minds that shaped the world 🌍 — or even from memories you create 🧬.
 
-
-
+---
 
 ## ✨ Key Features
 
@@ -77,6 +77,7 @@ Need motivation? Curious about their daily routines? Want advice for a decision?
 ### 🔐 Private & Public Modes  
 Keep replicas personal, or submit them to be public so others can learn too. Admins verify and maintain quality for public-facing replicas.
 
+---
 
 ## 🧪 Tech Stack
 
@@ -89,7 +90,7 @@ Pero is built using modern and scalable technologies to ensure a smooth, fast, a
 - **Zod, Axios, Zustand, React Hook Form** – For type-safe, reactive, and smooth form handling and API calls.
 - **Vercel** – Seamless deployment with CI/CD and preview environments.
 
-
+---
 
 ## 🔮 Future Roadmap
 
@@ -115,7 +116,7 @@ Here’s what’s coming next as **Pero** evolves:
 - 💎 **Subscription & Monetization**  
   To keep Pero growing and delivering premium features like voice conversations and priority access, we’ll introduce subscription plans. Subscribers will enjoy enhanced interactions, early access to new replicas, and exclusive training tools.
 
-
+---
 
 ## 👨‍💻 Meet the Creator
 
@@ -129,6 +130,30 @@ So, I built **Pero** — a platform that lets us not just learn from the greats,
 
 Thank you for checking it out — and I hope **Pero** adds value to your growth journey 🚀.
 
+---
+
+## ⚙️ Setup
+
+Getting started with **Pero** is super easy! Just follow these steps:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/pero.git
+   cd pero
+   npm install
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file
+   Copy the `.env.sample` file provided in the repo and fill in your environment variables.
+4. Run the development server
+   ```bash
+   npm run dev
+   ```
+Open [http://localhost:3000](http://localhost:3000) in your browser to see Pero in action.
 
 ---
 
