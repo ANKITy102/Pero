@@ -16,7 +16,7 @@ const FeatureCard = ({
   reverse?: boolean;
 }) => {
   return (
-    <div className="bg-[#080808] rounded-xl overflow-hidden shadow-lg mb-10">
+    <div className="bg-[#080808] rounded-xl py-5 px-4 overflow-hidden shadow-lg mb-14">
       <div
         className={`flex flex-col ${
           reverse ? "md:flex-row-reverse" : "md:flex-row"
@@ -48,7 +48,7 @@ const FeatureCard = ({
 export default function FeatureCards() {
   return (
     <section className=" px-4 max-w-7xl mx-auto">
-      <h2 className="text-4xl font-serif font-bold text-white text-center mb-12">
+      <h2 className="text-4xl font-serif font-bold text-white text-center mb-10">
         Platform Features
       </h2>
 

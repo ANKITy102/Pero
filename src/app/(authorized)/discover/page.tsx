@@ -1,11 +1,10 @@
 import React from "react";
 import Header from "@/components/discover/header";
-import Reviews from "@/components/discover/reviews";
 import Recommendation from "@/components/discover/recommendation";
 import { getReplicas } from "@/lib/actions/getReplicas";
 import { auth } from "@/lib/auth";
 import { Replica } from "@/lib/types/types";
-
+import Banner from "@/components/discover/reviews";
 const DiscoverPage = async () => {
   const res = await getReplicas();
   const session = await auth();
@@ -21,7 +20,7 @@ const DiscoverPage = async () => {
     <div className="min-h-screen  text-white">
       <div className="container max-w-7xl mx-auto p-4 md:p-6">
         <Header />
-        <Reviews />
+        <Banner />
         {session?.user.is_admin && (
           <div className="mt-10">
             <h2 className="text-xl font-medium mb-4">For you</h2>

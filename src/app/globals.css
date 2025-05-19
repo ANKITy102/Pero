@@ -124,7 +124,6 @@
 }
 
 
-/* Put this in your global CSS file (like globals.css) */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #4b5563 transparent; /* thumb | track */

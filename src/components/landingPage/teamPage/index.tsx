@@ -25,8 +25,7 @@ export default function TeamPage() {
             <h2 className="text-2xl text-white font-medium mb-6">Hi, I&apos;m Ankit, the solo developer behind this platform.</h2>
             <p className="text-lg text-gray-400 mb-6">
               I&apos;ve built this project from the ground up — designing the frontend, coding the backend, and crafting the
-              overall experience you see today. It&apos;s been a challenging but rewarding journey turning this vision into
-              reality.
+              overall experience you see today. It&apos;s been an exciting and fulfilling journey turning this vision into reality.
             </p>
             <p className="text-lg text-gray-400">
               Thanks for stopping by and exploring the platform! I&apos;m continuously working to improve it and add new
