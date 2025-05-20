@@ -44,15 +44,27 @@ That’s the dream I built **Pero** on. 💡🛠️
 
 ## 🚀 What Pero Does
 
-**Pero** is a personalized AI Replica platform that lets you **talk to legendary personalities** as if they were right in front of you. 🤯 It blends the power of custom-trained AI, rich personality prompts, and user-fed data to deliver meaningful, lifelike conversations.
+**Pero** is a personalized AI Replica platform that lets you **talk to legendary personalities** as if they were right in front of you. It blends the power of custom-trained AI, rich personality prompts, and user-fed data to deliver meaningful, lifelike conversations. 🤖✨
 
 Whether you're curious about Elon Musk’s take on innovation ⚙️, want to understand Dr. Kalam’s mindset 🌠, or hear life advice in the style of your favorite author ✍️ — **Pero makes it possible.**
 
-There are two types of replicas:
-- 🧑‍💼 **Public Replicas**: Created by the admin using detailed prompts + public data like biographies, interviews, and quotes. These simulate iconic figures in their tone, beliefs, and personality.
-- 🧍 **Private Replicas**: Created by users and trained exclusively on personal content. Think of it like building your own assistant or memory-keeper, tailored to your life and values.
+### Two Types of Replicas
 
-It’s not just a chatbot. 🛑 It’s a way to preserve, interact with, and learn from the minds that shaped the world 🌍 — or even from memories you create 🧬.
+**Pero offers two main types of AI replicas, each serving different purposes:**
+
+- 🧑‍💼 **Public Replicas (Admin-Created):**  
+  These replicas are created by the platform admins using extensive public data such as biographies, interviews, quotes, and other verified sources. The goal is to authentically simulate well-known personalities by capturing their tone, beliefs, and unique characteristics. These replicas can engage users with accurate and inspiring conversations, just like the real figures. 🎭
+
+- 🧍‍♂️ **Private Replicas (User-Created):**  
+  These replicas are created by users themselves and are trained exclusively on personal content provided by the user. This can include stories, memories, notes, or any other text the user shares. Private replicas act more like personal assistants or memory-keepers, tailored specifically to the user’s life, style, and preferences. They do not have any external knowledge beyond what the user feeds them. 🗃️💬
+
+You can explore the difference in how replicas are created by checking out the code for the create page here:  
+[Create Page Code](https://github.com/ANKITy102/Pero/blob/main/src/components/create/index.tsx) 🔗
+
+
+This dual-replica approach allows Pero to be both a gateway to legendary wisdom 🌟 and a personalized tool for everyday use. 🛠️
+
+
 
 
 ## ✨ Key Features
