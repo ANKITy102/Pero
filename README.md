@@ -175,7 +175,7 @@ Getting started with **Pero** is super easy! Just follow these steps:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/pero.git
+   git clone https://github.com/ANKITy102/Pero.git
    cd pero
    npm install
    ```
