@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Talk With Legends | AI Replica Platform",
   description:
     "Chat with AI replicas of historical and famous personalities like Mahatma Gandhi, Bill Gates, Elon Musk, and more. Get inspired through realistic conversations powered by Sensay AI.",
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://pero-delta.vercel.app"),
   keywords: [
     "AI Replica",
     "Talk to historical figures",
@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     title: "Talk With Legends | AI Replica Platform",
     description:
       "Realistic AI chat experience with legends and historical icons. Powered by Sensay API.",
-    url: "https://yourdomain.com", // your actual domain
+    url: "https://pero-delta.vercel.app",
     siteName: "Talk With Legends",
     images: [
       {
-        url: "https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747545654/Screenshot_2025-05-18_104825_wfoe4d.png", 
+        url: "https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747650666/Screenshot_2025-05-19_3.59.22_PM_ikxs82.png", 
         width: 1200,
         height: 630,
         alt: "Talk With Legends Preview",
