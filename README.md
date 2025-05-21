@@ -19,82 +19,104 @@
 
 ## 🌟 Inspiration
 
-As someone deeply inspired by stories of greatness — I’ve spent countless hours watching 🎙️ podcasts, 📖 reading biographies, and 🎥 listening to interviews of legends like Steve Jobs, Elon Musk, APJ Abdul Kalam, and others. Each time, I’m left with questions:  
+I’ve always been a sponge for stories of greatness — reading biographies, watching podcasts, and diving into interviews of legends like Steve Jobs, Elon Musk, Dr. APJ Abdul Kalam, Cristiano Ronaldo, Walt Disney, and more. But every time I watched or read, I’d hit a point where questions popped up in my mind:
 
-- 🤔 What was going through their mind at that turning point?
-- ❓ What would they say if I could ask them my doubts?
-- 💪 How did they stay so focused, so resilient?
+- 🤔 What was going through their head at that turning point?  
+- ❓ What would they say if I could ask my own doubts?  
+- 💪 How did they stay focused and bounce back from setbacks?
 
-But books are one-way. Videos can't answer your follow-ups. Podcasts can’t tailor the wisdom to your personal struggle.
+Books and videos are one-way. You can’t follow up, tailor the wisdom to your own journey, or dig deeper in real time.  
 
-That’s where the idea of **Pero** was born. 🚀
+Then along came the Sensay EdTech Breakthrough Hackathon… and the Wisdom Engine API. That’s when it clicked:  
+> “Wait — I can actually turn this idea into a real product.”  
 
-What if we could go beyond *just learning about* these great minds... and actually **converse with them**? 🧠💬
+With **Pero**, you don’t just learn about great minds—you **talk** with them. You get to ask for habits, mindsets, life lessons, and responses that feel authentic and personal.  
 
-Imagine talking to your idol — asking about their habits, mindset, or how they dealt with failure — and getting a response that feels authentic, wise, and deeply personal. 💭✨
+Imagine asking Ronaldo how he built his work ethic, or hearing Dr. Kalam explain his resilience, or picking Walt Disney’s brain on creativity—all in a natural chat.  
 
-With **Pero**, you can do exactly that.
-
-Whether it’s learning from the discipline of ⚽ Cristiano Ronaldo, the vision of 🇮🇳 Dr. Kalam, or the creativity of 🎨 Walt Disney — **Pero** makes their journeys accessible in a completely new way.
-
-> **Not just content. Conversation.**
-
-That’s the dream I built **Pero** on. 💡🛠️
+**Pero** makes that possible. Not just content… **conversation**. 🚀  
 
 
-## 🚀 What Pero Does
+## 🚀 What It Does
 
 **Pero** is a personalized AI Replica platform that lets you **talk to legendary personalities** as if they were right in front of you. It blends the power of custom-trained AI, rich personality prompts, and user-fed data to deliver meaningful, lifelike conversations. 🤖✨
 
 Whether you're curious about Elon Musk’s take on innovation ⚙️, want to understand Dr. Kalam’s mindset 🌠, or hear life advice in the style of your favorite author ✍️ — **Pero makes it possible.**
 
-### Two Types of Replicas
+## ✨ How It Works & Key Features
 
-**Pero offers two main types of AI replicas, each serving different purposes:**
-
-- 🧑‍💼 **Public Replicas (Admin-Created):**  
-  These replicas are created by the platform admins using extensive public data such as biographies, interviews, quotes, and other verified sources. The goal is to authentically simulate well-known personalities by capturing their tone, beliefs, and unique characteristics. These replicas can engage users with accurate and inspiring conversations, just like the real figures. 🎭
-
-- 🧍‍♂️ **Private Replicas (User-Created):**  
-  These replicas are created by users themselves and are trained exclusively on personal content provided by the user. This can include stories, memories, notes, or any other text the user shares. Private replicas act more like personal assistants or memory-keepers, tailored specifically to the user’s life, style, and preferences. They do not have any external knowledge beyond what the user feeds them. 🗃️💬
-
-You can explore the difference in how replicas are created by checking out the code for the create page here:  
-[Create Page Code](https://github.com/ANKITy102/Pero/blob/main/src/components/create/index.tsx) 🔗
-
-
-This dual-replica approach allows Pero to be both a gateway to legendary wisdom 🌟 and a personalized tool for everyday use. 🛠️
-
-
-
-
-## ✨ Key Features
-
-### 🧠 AI Replicas of Legends
-<div align="center">
+1. **Sign up & Log in**  
+   - New users register or sign in with Google.  
+   - Once logged in, you land on the Discover page.
+     
+  <div align="center">
+    <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747810723/Screenshot_2025-05-21_122635_msnhai.png" alt="Pero Demo" width="80%" />
+  </div>
+  
+2. **Discover & Chat**
+   - Browse a gallery of already-trained replicas (Einstein, Gates, Kalam, Ronaldo, and more).  
+   - Click any card to start a chat — each card even shows total chats so far.
+     
+  <div align="center">
   <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747655007/Screenshot_2025-05-19_5.08.46_PM_swr1p9.png" alt="Pero Demo" width="80%" />
 </div>
-Interact with replicas of iconic personalities — from scientists and entrepreneurs to athletes and artists. Get their wisdom in their tone, language, and mindset.
 
-### 🛠️ Create Your Own Replicas
-<div align="center">
-  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747654636/Screenshot_2025-05-19_5.05.57_PM_k7bbzi.png" alt="Pero Demo" width="80%" />
-</div>
-Train your personal AI assistant using stories, memories, notes, or preferences. Whether for journaling, life reflections, or fun — your AI learns only from you.
-
-### 💬 Realistic Conversations
-<div align="center">
+  <div align="center">
   <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747655116/Screenshot_2025-05-19_5.14.44_PM_nd88gp.png" alt="Pero Demo" width="80%" />
 </div>
-All replicas respond in first person (“I…”) and never break character. They feel authentic, personalized, and context-aware.
 
-### 📚 Learning Through Dialogue  
-Instead of passively reading a biography or watching interviews, you get to **ask questions, explore deeper ideas**, and learn through real-time interaction.
+3. **Create Your Own Replica**  
+   - On the Create page, enter a name, description, and avatar.  
+   - Your replica is private to you and trained only on the content you provide.
+  
+  <div align="center">
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747654636/Screenshot_2025-05-19_5.05.57_PM_k7bbzi.png" alt="Pero Demo" width="80%" />
+</div>
 
-### 💡 Inspiration on Demand  
-Need motivation? Curious about their daily routines? Want advice for a decision? Just ask — your AI replica is always there to guide or inspire you.
+4. **Request a Public Replica**  
+   - If your favorite personality isn’t listed, submit a request with basic details.  
+   - The admin team will research books, interviews, and biographies, then craft an authentic public replica.  
+   - Track your request status (“Not Started,” “In Progress,” “Completed,” or “Rejected”).
+     
+  <div align="center">
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747811284/Screenshot_2025-05-21_123749_wpyjak.png" alt="Pero Demo" width="80%" />
+</div>
 
-### 🔐 Private & Public Modes  
-Keep replicas personal, or submit them to be public so others can learn too. Admins verify and maintain quality for public-facing replicas.
+5. **Admin Panel & Public Replicas**  
+   - Admins review user requests and create public replicas using detailed prompts + public data.  
+   - Once published, these replicas appear for everyone to chat with.
+
+6. **Train Your Replicas**  
+   - Click **Train** in the navbar to see all your replicas.  
+   - Select any replica and upload new text (notes, articles, transcripts, etc.).  
+   - Retrain as often as you like to keep the replica’s knowledge fresh.
+     
+  <div align="center">
+  <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747811012/Screenshot_2025-05-21_123309_jezsoe.png" alt="Pero Demo" width="80%" />
+</div>
+
+### Two Prompt Modes
+
+- **Admin-Created (Public) Prompt**  
+  Uses extensive public data (biographies, interviews, quotes) to simulate iconic figures in their true voice. 🎭
+
+- **User-Created (Private) Prompt**  
+  Relies solely on user-provided content (stories, memories, notes) for a personalized assistant or memory-keeper. 🗃️💬
+
+---
+
+#### Notes
+
+- **Chat is live now**, but the final vision is full voice mimicry—replicas that sound exactly like the real person.  
+- **Video simulation** is on the roadmap, pending performance testing.  
+- A **subscription model** is planned for future releases but isn’t implemented yet.
+
+You can explore the Create page code here to see the exact implementation:  
+[Create Component Code](https://github.com/ANKITy102/Pero/blob/main/src/components/create/index.tsx) 🔗  
+
+To see how the **Sensay API** is used via server actions, visit:  
+[Sensay API Integration (Actions Folder)](https://github.com/ANKITy102/Pero/tree/main/src/lib/actions) ⚙️
+
 
 
 ## 🧪 Tech Stack
