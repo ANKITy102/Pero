@@ -1,4 +1,4 @@
-# 🧠 Pero – Chat with AI Replicas of Great Minds
+# 🧠 Pero
 
 <div align="center">
   <img src="https://res.cloudinary.com/dvyl9zjkp/image/upload/v1747650666/Screenshot_2025-05-19_3.59.22_PM_ikxs82.png" alt="Pero Demo" width="80%" />
